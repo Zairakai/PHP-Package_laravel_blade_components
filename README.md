@@ -1,93 +1,204 @@
-# Laravel Blade Components
+# zairakai/laravel-blade-components
 
+[![Main][pipeline-main-badge]][pipeline-main-link]
+[![Develop][pipeline-develop-badge]][pipeline-develop-link]
+[![Coverage][coverage-badge]][coverage-link]
 
+[![GitLab Release][gitlab-release-badge]][gitlab-release]
+[![Packagist][packagist-badge]][packagist]
+[![Downloads][downloads-badge]][packagist]
+[![License][license-badge]][license]
 
-## Getting started
+[![PHP][php-badge]][php]
+[![Laravel][laravel-badge]][laravel]
+[![Static Analysis][phpstan-badge]][phpstan]
+[![Code Style][pint-badge]][pint]
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+62 reusable Blade components for forms, layouts, content, and media — auto-registered with the `zk-` prefix, with full i18n support for 21 languages.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+---
 
-## Add your files
+## Features
 
-* [Create](https://docs.gitlab.com/user/project/repository/web_editor/#create-a-file) or [upload](https://docs.gitlab.com/user/project/repository/web_editor/#upload-a-file) files
-* [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+- **62 components** auto-registered as `<x-zk-*>` — no manual setup required
+- **Form components** (30) — input, select, textarea, checkbox, radio, field, label, button, file, password, switch, and more
+- **Layout components** (16) — container, grid, row, column, section, nav, breadcrumb, pagination, tabs, wrapper, and more
+- **Content components** (6) — heading, paragraph, link, list, blockquote, msr
+- **Media components** (10) — image, video, audio, figure, iframe, canvas, source, track, and more
+- **Internal cross-component aliases** — `form.field`, `form.input`, `layout.container`, etc.
+- **Publishable assets** — views, translations, and config per individual tags
+- **i18n** — 21 supported locales: `en`, `fr`, `es`, `de`, `it`, `pt`, `nl`, `ar`, `zh`, `ja`, `ko`, `ru`, `uk`, `pl`, `cs`, `ro`, `tr`, `sv`, `da`, `fi`, `no`
+- **Config** — password minimum length, select icon configurable without publishing views
 
+---
+
+## Install
+
+```bash
+composer require zairakai/laravel-blade-components
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/zairakai/php-packages/laravel-blade-components.git
-git branch -M main
-git push -uf origin main
-```
 
-## Integrate with your tools
+No service provider registration needed — the package auto-discovers via Laravel's package discovery.
 
-* [Set up project integrations](https://gitlab.com/zairakai/php-packages/laravel-blade-components/-/settings/integrations)
-
-## Collaborate with your team
-
-* [Invite team members and collaborators](https://docs.gitlab.com/user/project/members/)
-* [Create a new merge request](https://docs.gitlab.com/user/project/merge_requests/creating_merge_requests/)
-* [Automatically close issues from merge requests](https://docs.gitlab.com/user/project/issues/managing_issues/#closing-issues-automatically)
-* [Enable merge request approvals](https://docs.gitlab.com/user/project/merge_requests/approvals/)
-* [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-* [Get started with GitLab CI/CD](https://docs.gitlab.com/ci/quick_start/)
-* [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/user/application_security/sast/)
-* [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/topics/autodevops/requirements/)
-* [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/user/clusters/agent/)
-* [Set up protected environments](https://docs.gitlab.com/ci/environments/protected_environments/)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+---
 
 ## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+### Form
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+```blade
+{{-- Labeled field with input --}}
+<x-zk-field label="Email address" :required="true">
+    <x-zk-input type="email" name="email" :value="old('email')" />
+</x-zk-field>
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+{{-- Select --}}
+<x-zk-select name="role" :options="$roles" />
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+{{-- Password --}}
+<x-zk-password name="password" />
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+{{-- Submit button --}}
+<x-zk-submit>Save changes</x-zk-submit>
+```
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+### Layout
 
-## License
-For open source projects, say how it is licensed.
+```blade
+<x-zk-container>
+    <x-zk-grid>
+        <x-zk-grid-item :span="4">
+            <x-zk-aside>Sidebar</x-zk-aside>
+        </x-zk-grid-item>
+        <x-zk-grid-item :span="8">
+            <x-zk-main>Main content</x-zk-main>
+        </x-zk-grid-item>
+    </x-zk-grid>
+</x-zk-container>
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+{{-- Navigation --}}
+<x-zk-nav>
+    <x-zk-link :href="route('home')">Home</x-zk-link>
+    <x-zk-link :href="route('about')">About</x-zk-link>
+</x-zk-nav>
+
+{{-- Breadcrumb --}}
+<x-zk-breadcrumb :items="$breadcrumbs" />
+
+{{-- Pagination --}}
+<x-zk-pagination :paginator="$users" />
+```
+
+### Content
+
+```blade
+<x-zk-heading level="2">Section title</x-zk-heading>
+<x-zk-paragraph>Introductory text.</x-zk-paragraph>
+<x-zk-blockquote>A quoted passage.</x-zk-blockquote>
+
+<x-zk-list :items="$features" />
+```
+
+### Media
+
+```blade
+<x-zk-figure>
+    <x-zk-image src="/img/photo.jpg" alt="Photo" />
+    <x-zk-figcaption>Caption text</x-zk-figcaption>
+</x-zk-figure>
+
+<x-zk-video src="/media/clip.mp4" controls />
+```
+
+---
+
+## Config
+
+Publish and customize the package config:
+
+```bash
+php artisan vendor:publish --tag=zairakai-config
+```
+
+`config/blade-components.php`:
+
+```php
+return [
+    'password' => [
+        'min_characters' => 8,  // minimum password length validation hint
+    ],
+    'select' => [
+        'icon_after' => 'keyboard_arrow_down',  // dropdown icon
+    ],
+];
+```
+
+---
+
+## Publishing
+
+Customize views, translations, or config individually:
+
+```bash
+# Blade views (customize any component template)
+php artisan vendor:publish --tag=zairakai-components
+
+# Translations (21 locales)
+php artisan vendor:publish --tag=zairakai-lang
+
+# Config
+php artisan vendor:publish --tag=zairakai-config
+
+# Everything at once
+php artisan vendor:publish --tag=zairakai-all
+```
+
+Published views land in `resources/views/vendor/zairakai/` and can be freely modified.
+
+---
+
+## Development
+
+```bash
+make quality        # pint + phpstan + rector + insights + markdownlint + shellcheck
+make quality-fast   # pint + phpstan + markdownlint
+make test           # phpunit with coverage
+```
+
+---
+
+## Getting Help
+
+[![License][license-badge]][license]
+[![Security Policy][security-badge]][security]
+[![Issues][issues-badge]][issues]
+
+**Made with ❤️ by [Zairakai][ecosystem]**
+
+<!-- Reference Links -->
+[pipeline-main-badge]: https://gitlab.com/zairakai/php-packages/laravel-blade-components/badges/main/pipeline.svg?ignore_skipped=true&key_text=Main
+[pipeline-main-link]: https://gitlab.com/zairakai/php-packages/laravel-blade-components/commits/main
+[pipeline-develop-badge]: https://gitlab.com/zairakai/php-packages/laravel-blade-components/badges/develop/pipeline.svg?ignore_skipped=true&key_text=Develop
+[pipeline-develop-link]: https://gitlab.com/zairakai/php-packages/laravel-blade-components/commits/develop
+[coverage-badge]: https://gitlab.com/zairakai/php-packages/laravel-blade-components/badges/main/coverage.svg
+[coverage-link]: https://gitlab.com/zairakai/php-packages/laravel-blade-components/-/commits/main
+[gitlab-release-badge]: https://img.shields.io/gitlab/v/release/zairakai/php-packages/laravel-blade-components?logo=gitlab
+[gitlab-release]: https://gitlab.com/zairakai/php-packages/laravel-blade-components/-/releases
+[packagist-badge]: https://img.shields.io/packagist/v/zairakai/laravel-blade-components
+[packagist]: https://packagist.org/packages/zairakai/laravel-blade-components
+[downloads-badge]: https://img.shields.io/packagist/dt/zairakai/laravel-blade-components
+[license-badge]: https://img.shields.io/badge/license-MIT-blue.svg
+[license]: ./LICENSE
+[security-badge]: https://img.shields.io/badge/security-scanned-green.svg
+[security]: ./SECURITY.md
+[issues-badge]: https://img.shields.io/gitlab/issues/open-raw/zairakai%2Fphp-packages%2Flaravel-blade-components?logo=gitlab&label=Issues
+[issues]: https://gitlab.com/zairakai/php-packages/laravel-blade-components/-/issues
+[php-badge]: https://img.shields.io/badge/php-8.3%20%7C%208.4-blue?logo=php
+[php]: https://www.php.net
+[laravel-badge]: https://img.shields.io/badge/Laravel-11%20%7C%2012-red?logo=laravel
+[laravel]: https://laravel.com
+[phpstan-badge]: https://img.shields.io/badge/static%20analysis-phpstan-5B2C6F.svg?logo=php
+[phpstan]: https://phpstan.org
+[pint-badge]: https://img.shields.io/badge/code%20style-pint-22C55E.svg
+[pint]: https://laravel.com/docs/pint
+[ecosystem]: https://gitlab.com/zairakai

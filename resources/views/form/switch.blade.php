@@ -1,0 +1,27 @@
+@props([
+    'id' => null,
+    'name' => null,
+    'value' => null,
+    'checked' => false,
+    'class' => null,
+    'label' => null,
+    'fieldClass' => null,
+])
+
+@php
+    $classField = 'switch';
+
+    if (isset($fieldClass)) {
+        $classField .= ' ' . $fieldClass;
+    }
+@endphp
+
+<x-form.checkbox
+    :id="$id"
+    :name="$name"
+    :value="$value"
+    :checked="$checked"
+    :class="$class"
+    :label="$label"
+    :fieldClass="$classField"
+    :attributes="$attributes" />
