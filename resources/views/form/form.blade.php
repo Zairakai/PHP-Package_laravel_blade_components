@@ -8,9 +8,10 @@
 ])
 
 @php
-    if (is_null($method) && $route) {
-        $routeInfo = Route::getRoutes()->getByName($route);
-        $method = $routeInfo ? strtolower($routeInfo->methods()[0]) : 'post';
+    // Default to POST when a route name is provided — data-submitting forms are POST by convention.
+    // Pass method="get" explicitly for search forms.
+    if (is_null($method)) {
+        $method = $route ? 'post' : 'get';
     }
 
     if (is_null($action) && $route) {
