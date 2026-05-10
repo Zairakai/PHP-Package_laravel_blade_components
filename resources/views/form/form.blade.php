@@ -19,7 +19,7 @@
         $action = route($route, $routeParams);
     }
 
-    if (is_null($enctype) && Str::contains($slot, 'type="file"')) {
+    if (is_null($enctype) && Str::contains((string) $slot, 'type="file"')) {
         $enctype = 'multipart/form-data';
     }
 @endphp

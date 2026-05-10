@@ -15,7 +15,7 @@
     "wrap" => null,
     "dirname" => null,
     "label" => null,
-    "labelAfter" => false,
+    "labelBefore" => false,
     "fieldClass" => null,
     "iconBefore" => null,
     "iconAfter" => null,
@@ -41,7 +41,7 @@
 <x-form.field
     :field="$field"
     class="{{ $fieldClass }}">
-    @if ($field && $label && ! $labelAfter)
+    @if ($field && $label && $labelBefore)
         <x-form.label
             :label="$label"
             :name="$name"
@@ -89,7 +89,7 @@
         @endif
     </div>
 
-    @if ($field && $label && $labelAfter)
+    @if ($field && $label && ! $labelBefore)
         <x-form.label
             :label="$label"
             :name="$name"

@@ -22,7 +22,7 @@
             <li class="page-item {{ $currentPage == $i ? 'active' : '' }}">
                 <a
                     href="?page={{ $i }}"
-                    {{ $currentPage == $i ? 'aria-current="page"' : '' }}
+                    @if($currentPage == $i) aria-current="page" @endif
                     class="page-link">
                     {{ $i }}
                 </a>

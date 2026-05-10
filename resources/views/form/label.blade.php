@@ -27,7 +27,7 @@
         <span data-prefix>{{ $prefix }}</span>
     @endif
 
-    @if (! is_null($label) && ! is_null($name))
+    @if (! is_null($label))
         <span data-content>
             <span>{{ $label }}</span>
         </span>
