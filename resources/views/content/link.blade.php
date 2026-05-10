@@ -30,7 +30,7 @@
 
     $needSlotSpan = ! is_null($iconBefore) || ! is_null($msr) || ! is_null($iconAfter);
 
-    $dynamicAttributes = $attributes->filter(fn ($value, $key) => str_starts_with($key, "data-") || str_starts_with($key, "aria-"));
+    $dynamicAttributes = $attributes->filter(fn ($value, $key) => str_starts_with($key, "data-") || (str_starts_with($key, "aria-") && ! ($ariaLabel && "aria-label" === $key)));
 
     if (is_string($type) && ! BladeHelpers::isValidMimeType($type)) {
         $type = null;

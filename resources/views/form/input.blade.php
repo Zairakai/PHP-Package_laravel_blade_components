@@ -4,7 +4,7 @@
     "form" => null,
     "name" => null,
     "value" => null,
-    "placeholder" => "",
+    "placeholder" => null,
     "list" => null,
     "required" => false,
     "checked" => false,
@@ -38,18 +38,27 @@
 @php
     use Zairakai\LaravelBladeComponents\BladeHelpers;
 
-    if (is_null($label)) {
-        $id = null;
-    } elseif (is_null($name) && is_null($id)) {
-        $id = \Illuminate\Support\Str::random(40);
-    } elseif (is_null($id)) {
-        $id = $name;
+    // Only auto-generate an id when a label is present.
+    // An explicitly passed id is always preserved regardless of label.
+    if (! is_null($label)) {
+        if (is_null($name) && is_null($id)) {
+            $id = \Illuminate\Support\Str::random(40);
+        } elseif (is_null($id)) {
+            $id = $name;
+        }
     }
 
     $field = filter_var($field, FILTER_VALIDATE_BOOLEAN);
     $labelBefore = filter_var($labelBefore, FILTER_VALIDATE_BOOLEAN);
     $value = BladeHelpers::getOldValue($name, $value);
-    $dynamicAttributes = $attributes->filter(fn ($value, $key) => str_starts_with($key, "data-") || str_starts_with($key, "aria-"));
+
+    // Forward data-*, aria-* and Alpine (x-*, @*) attributes to the <input>.
+    $dynamicAttributes = $attributes->filter(fn ($value, $key) =>
+        str_starts_with($key, "data-") ||
+        str_starts_with($key, "aria-") ||
+        str_starts_with($key, "x-") ||
+        str_starts_with($key, "@")
+    );
 
     if ($errors->has($name)) {
         $supportingText = $errors->first($name);
@@ -87,7 +96,7 @@
         <input
             type="{{ $type }}"
             @if($id) id="{{ $id }}" @endif
-            placeholder="{{ $placeholder }}"
+            @if($placeholder) placeholder="{{ $placeholder }}" @endif
             @if($form) form="{{ $form }}" @endif
             @if($name) name="{{ $name }}" @endif
             @if(! is_null($value)) value="{{ $value }}" @endif

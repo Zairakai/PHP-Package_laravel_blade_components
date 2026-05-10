@@ -32,7 +32,14 @@
     $field = filter_var($field, FILTER_VALIDATE_BOOLEAN);
     $id = $id ?? $name;
     $value = BladeHelpers::getOldValue($name, $value);
-    $dynamicAttributes = $attributes->filter(fn ($value, $key) => str_starts_with($key, "data-"));
+
+    // Forward data-*, aria-* and Alpine (x-*, @*) attributes to the <textarea>.
+    $dynamicAttributes = $attributes->filter(fn ($value, $key) =>
+        str_starts_with($key, "data-") ||
+        str_starts_with($key, "aria-") ||
+        str_starts_with($key, "x-") ||
+        str_starts_with($key, "@")
+    );
 
     if ($errors->has($name)) {
         $supportingText = $errors->first($name);
@@ -65,7 +72,7 @@
         <textarea
             id="{{ $id }}"
             name="{{ $name }}"
-            placeholder="{{ $placeholder }}"
+            @if($placeholder) placeholder="{{ $placeholder }}" @endif
             @if(isset($form)) form="{{ $form }}" @endif
             @if(isset($required) && $required) required aria-required="true" @endif
             @if(isset($disabled) && $disabled) disabled @endif

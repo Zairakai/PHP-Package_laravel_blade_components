@@ -1,4 +1,5 @@
 @props([
+    'for' => null,
     'name' => null,
     'id' => null,
     'label' => null,
@@ -11,7 +12,8 @@
 ])
 
 @php
-    $forTarget = $id ?? $name;
+    // 'for' takes explicit priority, then id, then name.
+    $forTarget = $for ?? $id ?? $name;
 @endphp
 
 <label

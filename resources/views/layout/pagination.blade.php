@@ -13,7 +13,7 @@
                 <a
                     class="page-link"
                     href="?page={{ $currentPage - 1 }}">
-                    Previous
+                    {{ __('zairakai::layout.pagination.previous') }}
                 </a>
             </li>
         @endif
@@ -34,7 +34,7 @@
                 <a
                     class="page-link"
                     href="?page={{ $currentPage + 1 }}">
-                    Next
+                    {{ __('zairakai::layout.pagination.next') }}
                 </a>
             </li>
         @endif
