@@ -7,6 +7,14 @@ return [
         'video' => 'Selaimesi ei tue videon toistoa.',
         'audio' => 'Selaimesi ei tue äänen toistoa.',
     ],
+    'password' => [
+        'show' => 'Näytä salasana',
+        'hide' => 'Piilota salasana',
+    ],
+    'pagination' => [
+        'previous' => 'Edellinen',
+        'next'     => 'Seuraava',
+    ],
     'select' => [
         'default' => '-- Valitse vaihtoehto --',
     ],

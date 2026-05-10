@@ -4,7 +4,11 @@
     'class' => null,
 ])
 
-<fieldset @if($class) class="{{ $class }}" @endif>
+@php
+    $legendBefore = filter_var($legendBefore, FILTER_VALIDATE_BOOLEAN);
+@endphp
+
+<fieldset {{ $attributes->merge(['class' => $class]) }}>
     @if ($legend && $legendBefore)
         <legend>{{ $legend }}</legend>
     @endif

@@ -1,10 +1,5 @@
-@props([
-    'id' => null,
-    'class' => null,
-])
+@props(['class' => null])
 
-<figure
-    @if($id) id="{{ $id }}" @endif
-    @if($class) class="{{ $class }}" @endif>
+<figure {{ $attributes->merge(['class' => $class]) }}>
     {{ $slot }}
 </figure>

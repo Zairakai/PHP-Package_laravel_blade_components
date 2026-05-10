@@ -1,6 +1,7 @@
 @props([
     'id' => null,
     'route' => null,
+    'routeParams' => [],
     'action' => null,
     'method' => null,
     'enctype' => null,
@@ -15,16 +16,16 @@
     }
 
     if (is_null($action) && $route) {
-        $action = route($route);
+        $action = route($route, $routeParams);
     }
 
-    if (is_null($enctype) && Str::contains($slot, 'type="file"')) {
+    if (is_null($enctype) && Str::contains((string) $slot, 'type="file"')) {
         $enctype = 'multipart/form-data';
     }
 @endphp
 
 <form
-    @if ($id) id="{{ $id }}" @endif
+    {{ $attributes->merge(['id' => $id])->filter(fn ($v) => ! is_null($v)) }}
     action="{{ $action }}"
     @if (in_array(strtolower($method), ['get', 'post'])) method="{{ strtoupper($method) }}" @else method="POST" @endif
     @if($enctype) enctype="{{ $enctype }}" @endif

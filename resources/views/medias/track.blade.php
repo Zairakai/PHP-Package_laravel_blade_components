@@ -6,7 +6,12 @@
     'srclang' => null,
 ])
 
+@php
+    $default = filter_var($default, FILTER_VALIDATE_BOOLEAN);
+@endphp
+
 <track
+    {{ $attributes }}
     @if($src) src="{{ $src }}" @endif
     @if($label) label="{{ $label }}" @endif
     @if(isset($default) && $default) default @endif

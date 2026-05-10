@@ -1,8 +1,7 @@
 @props([
-    'id' => null,
-    'class' => null,
     'src' => null,
     'srcdoc' => null,
+    'class' => null,
     'width' => null,
     'height' => null,
     'allow' => null,
@@ -14,9 +13,13 @@
     'sandbox' => null,
 ])
 
+@php
+    $allowfullscreen      = filter_var($allowfullscreen, FILTER_VALIDATE_BOOLEAN);
+    $allowpaymentrequest  = filter_var($allowpaymentrequest, FILTER_VALIDATE_BOOLEAN);
+@endphp
+
 <iframe
-    @if($id) id="{{ $id }}" @endif
-    @if($class) class="{{ $class }}" @endif
+    {{ $attributes->merge(['class' => $class]) }}
     @if($src) src="{{ $src }}" @endif
     @if($srcdoc) srcdoc="{{ $srcdoc }}" @endif
     @if($width) width="{{ $width }}" @endif

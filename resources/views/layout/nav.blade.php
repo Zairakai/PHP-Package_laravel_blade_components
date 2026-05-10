@@ -1,12 +1,5 @@
-@props([
-    'id' => null,
-    'class' => null,
-    'role' => null,
-])
+@props(['class' => null])
 
-<nav
-    @if($id) id="{{ $id }}" @endif
-    @if($class) class="{{ $class }}" @endif
-    @if($role) role="{{ $role }}" @endif>
+<nav {{ $attributes->merge(['class' => $class]) }}>
     {{ $slot }}
 </nav>

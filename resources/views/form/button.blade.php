@@ -1,5 +1,4 @@
 @props([
-    'id' => null,
     'type' => 'button',
     'form' => null,
     'name' => null,
@@ -7,6 +6,7 @@
     'disabled' => false,
     'autofocus' => false,
     'class' => null,
+    'field' => false,
     'fieldClass' => null,
     'icon' => null,
 ])
@@ -14,20 +14,26 @@
 @php
     use Zairakai\LaravelBladeComponents\BladeHelpers;
 
-    $value = BladeHelpers::getOldValue($name, $value);
+    $field    = filter_var($field, FILTER_VALIDATE_BOOLEAN);
+    $disabled = filter_var($disabled, FILTER_VALIDATE_BOOLEAN);
+    $autofocus = filter_var($autofocus, FILTER_VALIDATE_BOOLEAN);
+    $value    = BladeHelpers::getOldValue($name, $value);
 @endphp
 
-<x-form.field class="{{ $fieldClass }}">
-    <button
-        type="{{ $type }}"
-        @if(isset($id)) id="{{ $id }}" @endif
-        @if(isset($form)) form="{{ $form }}" @endif
-        @if(isset($name)) name="{{ $name }}" @endif
-        @if(isset($value)) value="{{ $value }}" @endif
-        @if(isset($disabled) && $disabled) disabled @endif
-        @if(isset($autofocus) && $autofocus) autofocus @endif
-        @if(isset($class)) class="{{ $class }}" @endif
-        @if(isset($icon)) data-icon="{{ $icon }}" @endif>
-        {{ $slot }}
-    </button>
-</x-form.field>
+@if ($field)
+    <x-form.field class="{{ $fieldClass }}">
+@endif
+        <button
+            type="{{ $type }}"
+            {{ $attributes->merge(['class' => $class]) }}
+            @if($form) form="{{ $form }}" @endif
+            @if($name) name="{{ $name }}" @endif
+            @if(! is_null($value)) value="{{ $value }}" @endif
+            @if($disabled) disabled @endif
+            @if($autofocus) autofocus @endif
+            @if($icon) data-icon="{{ $icon }}" @endif>
+            {{ $slot }}
+        </button>
+@if ($field)
+    </x-form.field>
+@endif

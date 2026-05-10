@@ -1,5 +1,4 @@
 @props([
-    'id' => null,
     'class' => null,
     'controls' => true,
     'autoplay' => false,
@@ -14,17 +13,22 @@
 ])
 
 @php
+    $controls = filter_var($controls, FILTER_VALIDATE_BOOLEAN);
+    $autoplay = filter_var($autoplay, FILTER_VALIDATE_BOOLEAN);
+    $loop     = filter_var($loop, FILTER_VALIDATE_BOOLEAN);
+    $muted    = filter_var($muted, FILTER_VALIDATE_BOOLEAN);
+
     if (is_string($sources)) {
         $sources = [['src' => $sources]];
     }
+
     if (is_string($tracks)) {
         $tracks = [['src' => $tracks]];
     }
 @endphp
 
 <video
-    @if($id) id="{{ $id }}" @endif
-    @if($class) class="{{ $class }}" @endif
+    {{ $attributes->merge(['class' => $class]) }}
     @if($controls) controls @endif
     @if($autoplay) autoplay @endif
     @if($loop) loop @endif

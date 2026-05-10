@@ -1,10 +1,7 @@
-@props([
-    'cite' => null,
-    'class' => null,
-])
+@props(['cite' => null, 'class' => null])
 
 <blockquote
-    @if($cite) cite="{{ $cite }}" @endif
-    @if($class) class="{{ $class }}" @endif>
+    {{ $attributes->merge(['class' => $class]) }}
+    @if($cite) cite="{{ $cite }}" @endif>
     {{ $slot }}
 </blockquote>

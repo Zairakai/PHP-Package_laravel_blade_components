@@ -1,15 +1,9 @@
-@props([
-    'id' => null,
-    'class' => null,
-    'row' => 'row',
-])
+@props(['class' => null, 'row' => 'row'])
 
 @php
-    $class = trim($row . ' ' . $class);
+    $baseClass = trim($row . ($class ? ' ' . $class : ''));
 @endphp
 
-<div
-    @if($id) id="{{ $id }}" @endif
-    class="{{ $class }}">
+<div {{ $attributes->merge(['class' => $baseClass]) }}>
     {{ $slot }}
 </div>

@@ -1,16 +1,15 @@
-@props([
-    'id' => null,
-    'class' => null,
-    'lang' => null,
-    'role' => null,
-])
+@props(['class' => null, 'container' => true])
 
-<section
-    @if($id) id="{{ $id }}" @endif
-    @if($class) class="{{ $class }}" @endif
-    @if($lang) lang="{{ $lang }}" @endif
-    @if($role) role="{{ $role }}" @endif>
-    <x-layout.container>
+@php
+    $container = filter_var($container, FILTER_VALIDATE_BOOLEAN);
+@endphp
+
+<section {{ $attributes->merge(['class' => $class]) }}>
+    @if ($container)
+        <x-layout.container>
+            {{ $slot }}
+        </x-layout.container>
+    @else
         {{ $slot }}
-    </x-layout.container>
+    @endif
 </section>

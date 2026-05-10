@@ -1,21 +1,21 @@
 @props([
     'currentPage' => 1,
     'totalPages' => 1,
-    'id' => null,
     'class' => null,
+    'pageParam' => 'page',
+    'ariaLabel' => 'Pagination',
 ])
 
 <nav
-    @if($id) id="{{ $id }}" @endif
-    @if($class) class="{{ $class }}" @endif
-    aria-label="Pagination">
+    aria-label="{{ $ariaLabel }}"
+    {{ $attributes->merge(['class' => $class]) }}>
     <ul class="pagination">
         @if ($currentPage > 1)
             <li class="page-item">
                 <a
                     class="page-link"
-                    href="?page={{ $currentPage - 1 }}">
-                    Previous
+                    href="{{ request()->fullUrlWithQuery([$pageParam => $currentPage - 1]) }}">
+                    {{ __('zairakai::layout.pagination.previous') }}
                 </a>
             </li>
         @endif
@@ -23,8 +23,8 @@
         @for ($i = 1; $i <= $totalPages; $i++)
             <li class="page-item {{ $currentPage == $i ? 'active' : '' }}">
                 <a
-                    href="?page={{ $i }}"
-                    {{ $currentPage == $i ? 'aria-current="page"' : '' }}
+                    href="{{ request()->fullUrlWithQuery([$pageParam => $i]) }}"
+                    @if($currentPage == $i) aria-current="page" @endif
                     class="page-link">
                     {{ $i }}
                 </a>
@@ -35,8 +35,8 @@
             <li class="page-item">
                 <a
                     class="page-link"
-                    href="?page={{ $currentPage + 1 }}">
-                    Next
+                    href="{{ request()->fullUrlWithQuery([$pageParam => $currentPage + 1]) }}">
+                    {{ __('zairakai::layout.pagination.next') }}
                 </a>
             </li>
         @endif
