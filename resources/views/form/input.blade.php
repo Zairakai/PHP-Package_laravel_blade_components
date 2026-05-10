@@ -52,14 +52,6 @@
     $labelBefore = filter_var($labelBefore, FILTER_VALIDATE_BOOLEAN);
     $value = BladeHelpers::getOldValue($name, $value);
 
-    // Forward data-*, aria-* and Alpine (x-*, @*) attributes to the <input>.
-    $dynamicAttributes = $attributes->filter(fn ($value, $key) =>
-        str_starts_with($key, "data-") ||
-        str_starts_with($key, "aria-") ||
-        str_starts_with($key, "x-") ||
-        str_starts_with($key, "@")
-    );
-
     if ($errors->has($name)) {
         $supportingText = $errors->first($name);
     }
@@ -118,9 +110,7 @@
             @if($width) width="{{ $width }}" @endif
             @if($height) height="{{ $height }}" @endif
             @if($size) size="{{ $size }}" @endif
-            @foreach ($dynamicAttributes as $key => $value)
-                {{ $key }}="{{ $value }}"
-            @endforeach >
+            {{ $attributes }}>
 
         @if ($suffix)
             <span data-suffix>{{ $suffix }}</span>

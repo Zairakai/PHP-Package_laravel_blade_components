@@ -18,10 +18,10 @@
         <button
             type="button"
             data-toggle-visibility
+            data-label-show="{{ __('zairakai::layout.password.show') }}"
+            data-label-hide="{{ __('zairakai::layout.password.hide') }}"
             x-on:click="show = !show"
-            :aria-label="show
-                ? '{{ __('zairakai::layout.password.hide') }}'
-                : '{{ __('zairakai::layout.password.show') }}'">
+            :aria-label="show ? $el.dataset.labelHide : $el.dataset.labelShow">
             <span class="msr" x-text="show ? 'visibility_off' : 'visibility'"></span>
         </button>
     </div>

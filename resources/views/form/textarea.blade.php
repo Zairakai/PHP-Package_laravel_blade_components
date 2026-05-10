@@ -33,14 +33,6 @@
     $id = $id ?? $name;
     $value = BladeHelpers::getOldValue($name, $value);
 
-    // Forward data-*, aria-* and Alpine (x-*, @*) attributes to the <textarea>.
-    $dynamicAttributes = $attributes->filter(fn ($value, $key) =>
-        str_starts_with($key, "data-") ||
-        str_starts_with($key, "aria-") ||
-        str_starts_with($key, "x-") ||
-        str_starts_with($key, "@")
-    );
-
     if ($errors->has($name)) {
         $supportingText = $errors->first($name);
     }
@@ -73,20 +65,18 @@
             id="{{ $id }}"
             name="{{ $name }}"
             @if($placeholder) placeholder="{{ $placeholder }}" @endif
-            @if(isset($form)) form="{{ $form }}" @endif
-            @if(isset($required) && $required) required aria-required="true" @endif
-            @if(isset($disabled) && $disabled) disabled @endif
-            @if(isset($readonly) && $readonly) readonly @endif
-            @if(isset($autofocus) && $autofocus) autofocus @endif
-            @if(isset($class)) class="{{ $class }}" @endif
-            @if(isset($rows)) rows="{{ $rows }}" @endif
-            @if(isset($cols)) cols="{{ $cols }}" @endif
-            @if(isset($maxlength)) maxlength="{{ $maxlength }}" @endif
-            @if(isset($wrap)) wrap="{{ $wrap }}" @endif
-            @if(isset($dirname)) dirname="{{ $dirname }}" @endif
-            @foreach ($dynamicAttributes as $key => $value)
-                {{ $key }}="{{ $value }}"
-            @endforeach>
+            @if($form) form="{{ $form }}" @endif
+            @if($required) required aria-required="true" @endif
+            @if($disabled) disabled @endif
+            @if($readonly) readonly @endif
+            @if($autofocus) autofocus @endif
+            @if($class) class="{{ $class }}" @endif
+            @if($rows) rows="{{ $rows }}" @endif
+            @if($cols) cols="{{ $cols }}" @endif
+            @if($maxlength) maxlength="{{ $maxlength }}" @endif
+            @if($wrap) wrap="{{ $wrap }}" @endif
+            @if($dirname) dirname="{{ $dirname }}" @endif
+            {{ $attributes }}>
             {{ $value }}
         </textarea>
 
