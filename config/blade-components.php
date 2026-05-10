@@ -15,6 +15,11 @@ return [
     'password' => [
         'min_characters' => 8,
         'show_toggle'    => true,
+        // Default icons for the toggle button.
+        // Override per-component via named slots iconShow / iconHide.
+        // Override globally via the published config (HTML string accepted).
+        'icon_show'      => '😳',
+        'icon_hide'      => '🫣',
     ],
 
     /*
