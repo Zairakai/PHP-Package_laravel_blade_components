@@ -14,8 +14,10 @@
 @php
     use Zairakai\LaravelBladeComponents\BladeHelpers;
 
-    $field = filter_var($field, FILTER_VALIDATE_BOOLEAN);
-    $value = BladeHelpers::getOldValue($name, $value);
+    $field    = filter_var($field, FILTER_VALIDATE_BOOLEAN);
+    $disabled = filter_var($disabled, FILTER_VALIDATE_BOOLEAN);
+    $autofocus = filter_var($autofocus, FILTER_VALIDATE_BOOLEAN);
+    $value    = BladeHelpers::getOldValue($name, $value);
 @endphp
 
 @if ($field)

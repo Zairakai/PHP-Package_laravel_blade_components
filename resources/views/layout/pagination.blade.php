@@ -3,10 +3,11 @@
     'totalPages' => 1,
     'class' => null,
     'pageParam' => 'page',
+    'ariaLabel' => 'Pagination',
 ])
 
 <nav
-    aria-label="Pagination"
+    aria-label="{{ $ariaLabel }}"
     {{ $attributes->merge(['class' => $class]) }}>
     <ul class="pagination">
         @if ($currentPage > 1)
