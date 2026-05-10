@@ -30,8 +30,6 @@
 
     $needSlotSpan = ! is_null($iconBefore) || ! is_null($msr) || ! is_null($iconAfter);
 
-    $dynamicAttributes = $attributes->filter(fn ($value, $key) => str_starts_with($key, "data-") || (str_starts_with($key, "aria-") && ! ($ariaLabel && "aria-label" === $key)));
-
     if (is_string($type) && ! BladeHelpers::isValidMimeType($type)) {
         $type = null;
     }
@@ -49,9 +47,7 @@
     @if($referrerpolicy) referrerpolicy="{{ $referrerpolicy }}" @endif
     @if($hreflang) hreflang="{{ $hreflang }}" @endif
     @if($type) type="{{ $type }}" @endif
-    @foreach ($dynamicAttributes as $key => $value)
-        {{ $key }}="{{ $value }}"
-    @endforeach>
+    {{ $attributes }}>
     @if (isset($iconBefore))
         <span class="msr icon-before">{{ $iconBefore }}</span>
     @endif
