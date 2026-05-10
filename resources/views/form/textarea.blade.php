@@ -67,7 +67,7 @@
             name="{{ $name }}"
             placeholder="{{ $placeholder }}"
             @if(isset($form)) form="{{ $form }}" @endif
-            @if(isset($required) && $required) required @endif
+            @if(isset($required) && $required) required aria-required="true" @endif
             @if(isset($disabled) && $disabled) disabled @endif
             @if(isset($readonly) && $readonly) readonly @endif
             @if(isset($autofocus) && $autofocus) autofocus @endif

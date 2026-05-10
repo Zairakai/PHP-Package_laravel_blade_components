@@ -6,6 +6,8 @@
     'selected' => null,
     'multiple' => false,
     'required' => false,
+    'disabled' => false,
+    'autofocus' => false,
     'class' => null,
     'label' => null,
     'labelBefore' => false,
@@ -13,6 +15,8 @@
     'field' => true,
     'iconBefore' => null,
     'iconAfter' => config('blade-components.select.icon_after', 'keyboard_arrow_down'),
+    'supportingText' => null,
+    'supportingCounter' => null,
 ])
 
 @php
@@ -20,14 +24,21 @@
     $labelBefore = filter_var($labelBefore, FILTER_VALIDATE_BOOLEAN);
     $id = $id ?? $name;
 
+    $options = collect($options);
+
     $needDefaultOption =
         $required &&
         ! $options->contains(function (mixed $value) {
             return ! is_array($value);
         });
+
+    if ($errors->has($name)) {
+        $supportingText = $errors->first($name);
+    }
 @endphp
 
 <x-form.field
+    name="{{ $name }}"
     class="{{ $fieldClass }}"
     :field="$field">
     @if ($field && $label && $labelBefore)
@@ -47,10 +58,12 @@
         <select
             id="{{ $id }}"
             name="{{ $name }}{{ $multiple ? '[]' : '' }}"
-            @if(isset($form)) form="{{ $form }}" @endif
+            @if($form) form="{{ $form }}" @endif
             @if($required) required aria-required="true" @endif
             @if($multiple) multiple @endif
-            @if(isset($class)) class="{{ $class }}" @endif>
+            @if($disabled) disabled @endif
+            @if($autofocus) autofocus @endif
+            @if($class) class="{{ $class }}" @endif>
             @foreach ($options as $optionKey => $optionValue)
                 @if ($loop->first && $needDefaultOption)
                     <option value="">
@@ -92,5 +105,9 @@
             :iconAfter="$iconAfter" />
     @endif
 
-
+    @if ($field)
+        <x-form.additional
+            :text="$supportingText"
+            :counter="$supportingCounter" />
+    @endif
 </x-form.field>

@@ -49,7 +49,7 @@
     $field = filter_var($field, FILTER_VALIDATE_BOOLEAN);
     $labelBefore = filter_var($labelBefore, FILTER_VALIDATE_BOOLEAN);
     $value = BladeHelpers::getOldValue($name, $value);
-    $dynamicAttributes = $attributes->filter(fn ($value, $key) => str_starts_with($key, "data-"));
+    $dynamicAttributes = $attributes->filter(fn ($value, $key) => str_starts_with($key, "data-") || str_starts_with($key, "aria-"));
 
     if ($errors->has($name)) {
         $supportingText = $errors->first($name);

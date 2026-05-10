@@ -1,10 +1,5 @@
-@props([
-    'id' => null,
-    'class' => null,
-])
+@props(['class' => null])
 
-<div
-    @if($id) id="{{ $id }}" @endif
-    @if($class) class="{{ $class }}" @endif>
+<div {{ $attributes->merge(['class' => $class]) }}>
     {{ $slot }}
 </div>

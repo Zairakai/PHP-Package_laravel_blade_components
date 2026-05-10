@@ -1,5 +1,4 @@
 @props([
-    'id' => null,
     'type' => 'button',
     'form' => null,
     'name' => null,
@@ -20,14 +19,13 @@
 <x-form.field class="{{ $fieldClass }}">
     <button
         type="{{ $type }}"
-        @if(isset($id)) id="{{ $id }}" @endif
-        @if(isset($form)) form="{{ $form }}" @endif
-        @if(isset($name)) name="{{ $name }}" @endif
-        @if(isset($value)) value="{{ $value }}" @endif
-        @if(isset($disabled) && $disabled) disabled @endif
-        @if(isset($autofocus) && $autofocus) autofocus @endif
-        @if(isset($class)) class="{{ $class }}" @endif
-        @if(isset($icon)) data-icon="{{ $icon }}" @endif>
+        {{ $attributes->merge(['class' => $class]) }}
+        @if($form) form="{{ $form }}" @endif
+        @if($name) name="{{ $name }}" @endif
+        @if(! is_null($value)) value="{{ $value }}" @endif
+        @if($disabled) disabled @endif
+        @if($autofocus) autofocus @endif
+        @if($icon) data-icon="{{ $icon }}" @endif>
         {{ $slot }}
     </button>
 </x-form.field>

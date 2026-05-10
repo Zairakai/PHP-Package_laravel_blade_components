@@ -4,7 +4,7 @@
     'class' => null,
 ])
 
-<fieldset @if($class) class="{{ $class }}" @endif>
+<fieldset {{ $attributes->merge(['class' => $class]) }}>
     @if ($legend && $legendBefore)
         <legend>{{ $legend }}</legend>
     @endif

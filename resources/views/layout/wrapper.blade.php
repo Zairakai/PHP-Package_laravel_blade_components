@@ -1,14 +1,9 @@
-@props([
-    'id' => null,
-    'class' => null,
-])
+@props(['class' => null])
 
 @php
-    $class .= ' wrapper';
+    $baseClass = trim('wrapper' . ($class ? ' ' . $class : ''));
 @endphp
 
-<div
-    @if($id) id="{{ $id }}" @endif
-    @if($class) class="{{ trim($class) }}" @endif>
+<div {{ $attributes->merge(['class' => $baseClass]) }}>
     {{ $slot }}
 </div>

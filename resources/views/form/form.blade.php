@@ -1,6 +1,7 @@
 @props([
     'id' => null,
     'route' => null,
+    'routeParams' => [],
     'action' => null,
     'method' => null,
     'enctype' => null,
@@ -15,7 +16,7 @@
     }
 
     if (is_null($action) && $route) {
-        $action = route($route);
+        $action = route($route, $routeParams);
     }
 
     if (is_null($enctype) && Str::contains($slot, 'type="file"')) {

@@ -1,13 +1,12 @@
 @props([
-    'id' => null,
     'class' => null,
     'items' => [],
+    'ariaLabel' => 'breadcrumb',
 ])
 
 <nav
-    aria-label="breadcrumb"
-    @if($id) id="{{ $id }}" @endif
-    @if($class) class="{{ $class }}" @endif>
+    aria-label="{{ $ariaLabel }}"
+    {{ $attributes->merge(['class' => $class]) }}>
     <ol class="breadcrumb">
         @foreach ($items as $item)
             <li class="breadcrumb-item">

@@ -1,10 +1,9 @@
 @props([
-    'id' => null,
     'class' => null,
     'tabs' => [],
 ])
 
-<div @if($id) id="{{ $id }}" @endif>
+<div {{ $attributes }}>
     <ul class="nav nav-tabs @if($class) {{ $class }} @endif">
         @foreach ($tabs as $index => $tab)
             <li class="nav-item">

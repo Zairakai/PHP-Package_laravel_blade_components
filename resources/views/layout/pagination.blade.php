@@ -1,14 +1,12 @@
 @props([
     'currentPage' => 1,
     'totalPages' => 1,
-    'id' => null,
     'class' => null,
 ])
 
 <nav
-    @if($id) id="{{ $id }}" @endif
-    @if($class) class="{{ $class }}" @endif
-    aria-label="Pagination">
+    aria-label="Pagination"
+    {{ $attributes->merge(['class' => $class]) }}>
     <ul class="pagination">
         @if ($currentPage > 1)
             <li class="page-item">
