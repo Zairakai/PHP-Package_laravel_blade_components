@@ -19,7 +19,7 @@
 @endphp
 
 @if ($field)
-    <div class="{{ trim($classes) }}">
+    <div {{ $attributes->merge(['class' => trim($classes)]) }}>
         {{ $slot }}
     </div>
 @else

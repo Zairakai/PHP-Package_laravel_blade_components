@@ -63,7 +63,7 @@
             @if($multiple) multiple @endif
             @if($disabled) disabled @endif
             @if($autofocus) autofocus @endif
-            @if($class) class="{{ $class }}" @endif>
+            @if($class) class="{{ $class }}" @endif {{ $attributes }}>
             @foreach ($options as $optionKey => $optionValue)
                 @if ($loop->first && $needDefaultOption)
                     <option value="">

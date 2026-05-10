@@ -2,6 +2,7 @@
     'name' => null,
     'id' => null,
     'label' => null,
+    'class' => null,
     'msr' => null,
     'iconBefore' => null,
     'iconAfter' => null,
@@ -9,7 +10,13 @@
     'suffix' => null,
 ])
 
-<label for="{{ $id ?? $name }}">
+@php
+    $forTarget = $id ?? $name;
+@endphp
+
+<label
+    {{ $attributes->merge(['class' => $class]) }}
+    @if($forTarget) for="{{ $forTarget }}" @endif>
     @if ($iconBefore)
         <span data-leading-icon>{{ $iconBefore }}</span>
     @endif

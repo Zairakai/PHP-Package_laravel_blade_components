@@ -1,12 +1,11 @@
 @props([
     'src' => null,
     'alt' => null,
-    'id' => null,
+    'class' => null,
     'width' => null,
     'height' => null,
     'srcset' => null,
     'sizes' => null,
-    'class' => null,
     'crossorigin' => null,
     'loading' => null,
     'decoding' => null,
@@ -27,14 +26,13 @@
 @endphp
 
 <img
-    @if($id) id="{{ $id }}" @endif
+    {{ $attributes->merge(['class' => $class]) }}
     src="{{ $src }}"
     alt="{{ $alt }}"
     @if($srcset) srcset="{{ $srcset }}" @endif
     @if($sizes) sizes="{{ $sizes }}" @endif
     @if($width) width="{{ $width }}" @endif
     @if($height) height="{{ $height }}" @endif
-    @if($class) class="{{ $class }}" @endif
     @if($crossorigin) crossorigin="{{ $crossorigin }}" @endif
     @if($loading) loading="{{ $loading }}" @endif
     @if($decoding) decoding="{{ $decoding }}" @endif

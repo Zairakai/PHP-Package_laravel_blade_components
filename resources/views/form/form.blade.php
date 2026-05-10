@@ -25,7 +25,7 @@
 @endphp
 
 <form
-    @if ($id) id="{{ $id }}" @endif
+    {{ $attributes->merge(['id' => $id])->filter(fn ($v) => ! is_null($v)) }}
     action="{{ $action }}"
     @if (in_array(strtolower($method), ['get', 'post'])) method="{{ strtoupper($method) }}" @else method="POST" @endif
     @if($enctype) enctype="{{ $enctype }}" @endif

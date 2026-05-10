@@ -1,5 +1,4 @@
 @props([
-    'id' => null,
     'class' => null,
     'controls' => true,
     'autoplay' => false,
@@ -17,14 +16,14 @@
     if (is_string($sources)) {
         $sources = [['src' => $sources]];
     }
+
     if (is_string($tracks)) {
         $tracks = [['src' => $tracks]];
     }
 @endphp
 
 <video
-    @if($id) id="{{ $id }}" @endif
-    @if($class) class="{{ $class }}" @endif
+    {{ $attributes->merge(['class' => $class]) }}
     @if($controls) controls @endif
     @if($autoplay) autoplay @endif
     @if($loop) loop @endif

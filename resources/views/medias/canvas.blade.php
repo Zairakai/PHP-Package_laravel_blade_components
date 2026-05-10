@@ -1,13 +1,7 @@
-@props([
-    'id' => null,
-    'class' => null,
-    'width' => null,
-    'height' => null,
-])
+@props(['class' => null, 'width' => null, 'height' => null])
 
 <canvas
-    @if($id) id="{{ $id }}" @endif
-    @if($class) class="{{ $class }}" @endif
+    {{ $attributes->merge(['class' => $class]) }}
     @if($width) width="{{ $width }}" @endif
     @if($height) height="{{ $height }}" @endif>
     {{ $slot }}

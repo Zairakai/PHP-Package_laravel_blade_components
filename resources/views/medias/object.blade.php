@@ -1,8 +1,7 @@
 @props([
-    'id' => null,
-    'class' => null,
     'data' => null,
     'type' => null,
+    'class' => null,
     'width' => null,
     'height' => null,
     'name' => null,
@@ -10,8 +9,7 @@
 ])
 
 <object
-    @if($id) id="{{ $id }}" @endif
-    @if($class) class="{{ $class }}" @endif
+    {{ $attributes->merge(['class' => $class]) }}
     @if($data) data="{{ $data }}" @endif
     @if($type) type="{{ $type }}" @endif
     @if($width) width="{{ $width }}" @endif

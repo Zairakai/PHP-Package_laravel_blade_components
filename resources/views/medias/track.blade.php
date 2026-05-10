@@ -7,6 +7,7 @@
 ])
 
 <track
+    {{ $attributes }}
     @if($src) src="{{ $src }}" @endif
     @if($label) label="{{ $label }}" @endif
     @if(isset($default) && $default) default @endif
