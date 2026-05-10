@@ -17,6 +17,8 @@
 ])
 
 @php
+    $ismap = filter_var($ismap, FILTER_VALIDATE_BOOLEAN);
+
     if (
         ! is_null($crossorigin) &&
         ! in_array($crossorigin, ['anonymous', 'use-credentials'])

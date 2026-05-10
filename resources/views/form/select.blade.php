@@ -32,6 +32,12 @@
             return ! is_array($value);
         });
 
+    // Resolve once to avoid calling old() on every option iteration.
+    // Cast to string so comparisons against integer keys don't produce
+    // false positives (null == 0 is true in PHP loose comparison).
+    $resolvedSelected = old($name, $selected);
+    $resolvedSelected = is_null($resolvedSelected) ? null : (string) $resolvedSelected;
+
     if ($errors->has($name)) {
         $supportingText = $errors->first($name);
     }
@@ -76,7 +82,7 @@
                         @foreach ($optionValue as $optionValueValue => $optionValueLabel)
                             <option
                                 value="{{ $optionValueValue }}"
-                                {{ old($name, $selected) == $optionValueValue ? 'selected' : '' }}>
+                                {{ ! is_null($resolvedSelected) && $resolvedSelected === (string) $optionValueValue ? 'selected' : '' }}>
                                 {{ $optionValueLabel }}
                             </option>
                         @endforeach
@@ -84,7 +90,7 @@
                 @else
                     <option
                         value="{{ $optionKey }}"
-                        {{ old($name, $selected) == $optionKey ? 'selected' : '' }}>
+                        {{ ! is_null($resolvedSelected) && $resolvedSelected === (string) $optionKey ? 'selected' : '' }}>
                         {{ $optionValue }}
                     </option>
                 @endif
