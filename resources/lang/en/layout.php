@@ -13,7 +13,7 @@ return [
     ],
     'pagination' => [
         'previous' => 'Previous',
-        'next' => 'Next',
+        'next'     => 'Next',
     ],
     'select' => [
         'default' => '-- Select an option --',

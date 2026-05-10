@@ -13,7 +13,7 @@ return [
     ],
     'pagination' => [
         'previous' => 'السابق',
-        'next' => 'التالي',
+        'next'     => 'التالي',
     ],
     'select' => [
         'default' => '-- اختر خياراً --',

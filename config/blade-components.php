@@ -14,7 +14,7 @@ return [
     */
     'password' => [
         'min_characters' => 8,
-        'show_toggle' => true,
+        'show_toggle'    => true,
     ],
 
     /*

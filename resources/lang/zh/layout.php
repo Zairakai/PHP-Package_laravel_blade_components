@@ -13,7 +13,7 @@ return [
     ],
     'pagination' => [
         'previous' => '上一页',
-        'next' => '下一页',
+        'next'     => '下一页',
     ],
     'select' => [
         'default' => '-- 请选择一个选项 --',

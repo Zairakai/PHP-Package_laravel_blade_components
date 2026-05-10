@@ -13,7 +13,7 @@ return [
     ],
     'pagination' => [
         'previous' => '이전',
-        'next' => '다음',
+        'next'     => '다음',
     ],
     'select' => [
         'default' => '-- 옵션을 선택하세요 --',

@@ -13,7 +13,7 @@ return [
     ],
     'pagination' => [
         'previous' => 'Předchozí',
-        'next' => 'Další',
+        'next'     => 'Další',
     ],
     'select' => [
         'default' => '-- Vyberte možnost --',

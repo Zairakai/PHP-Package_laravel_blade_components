@@ -13,7 +13,7 @@ return [
     ],
     'pagination' => [
         'previous' => 'Anterior',
-        'next' => 'Următor',
+        'next'     => 'Următor',
     ],
     'select' => [
         'default' => '-- Selectați o opțiune --',

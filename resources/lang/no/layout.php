@@ -13,7 +13,7 @@ return [
     ],
     'pagination' => [
         'previous' => 'Forrige',
-        'next' => 'Neste',
+        'next'     => 'Neste',
     ],
     'select' => [
         'default' => '-- Velg et alternativ --',
