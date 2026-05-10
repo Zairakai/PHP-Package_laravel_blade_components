@@ -5,6 +5,7 @@
     'checked' => false,
     'class' => null,
     'label' => null,
+    'field' => true,
     'fieldClass' => null,
 ])
 
@@ -23,5 +24,6 @@
     :checked="$checked"
     :class="$class"
     :label="$label"
+    :field="$field"
     :fieldClass="$classField"
     :attributes="$attributes" />

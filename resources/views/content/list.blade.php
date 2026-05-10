@@ -40,7 +40,7 @@
                         :value="$item['value'] ?? null"
                         :class="$item['class'] ?? null"
                         :disabled="$item['disabled'] ?? false"
-                        fieldClass="none">
+                        :field="false">
                         {{ $item['label'] ?? '' }}
                     </x-form.button>
                 @elseif ('form' === $item['type'])

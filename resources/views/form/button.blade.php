@@ -6,7 +6,7 @@
     'disabled' => false,
     'autofocus' => false,
     'class' => null,
-    'field' => true,
+    'field' => false,
     'fieldClass' => null,
     'icon' => null,
 ])
