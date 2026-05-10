@@ -12,7 +12,7 @@ internal: x-layout.pagination
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `currentPage` | `int` | `1` | Currently active page number |
 | `totalPages` | `int` | `1` | Total number of pages |
 | `pageParam` | `string` | `'page'` | Query parameter name in the URL |

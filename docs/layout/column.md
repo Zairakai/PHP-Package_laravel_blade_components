@@ -12,7 +12,7 @@ internal: x-layout.column
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `col` | `string` | `'col'` | Base CSS class |
 | `class` | `string\|null` | `null` | Additional CSS class(es) |
 

@@ -12,7 +12,7 @@ internal: x-layout.grid
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `columns` | `int\|null` | `null` | Appends `grid-cols-{N}` class when set |
 | `class` | `string\|null` | `null` | Replaces the base `grid` class when provided |
 

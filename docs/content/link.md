@@ -12,7 +12,7 @@ internal: x-content.link
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `href` | `string\|null` | `null` | Explicit URL |
 | `route` | `string\|null` | `null` | Laravel route name — generates `href` and adds `active` class when current |
 | `routeParams` | `array` | `[]` | Parameters passed to `route()` |

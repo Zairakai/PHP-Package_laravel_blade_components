@@ -12,7 +12,7 @@ internal: x-medias.figure
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `class` | `string\|null` | `null` | CSS class(es) |
 
 ## Example

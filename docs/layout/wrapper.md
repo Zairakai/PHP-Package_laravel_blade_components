@@ -12,8 +12,8 @@ internal: x-layout.wrapper
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `class` | `string|null` | `null` | CSS class(es) merged onto the element |
+| ---- | ---- | ------- | ----------- |
+| `class` | `string\|null` | `null` | CSS class(es) merged onto the element |
 
 ## Example
 

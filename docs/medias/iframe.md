@@ -12,7 +12,7 @@ internal: x-medias.iframe
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `src` | `string\|null` | `null` | Embed URL |
 | `srcdoc` | `string\|null` | `null` | Inline HTML content |
 | `class` | `string\|null` | `null` | CSS class(es) |

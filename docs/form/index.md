@@ -28,7 +28,7 @@ zk-form                  ← <form> wrapper (CSRF, method spoofing, enctype auto
 These components are thin wrappers around `zk-input` with `type` pre-set. They accept all `zk-input` props.
 
 | Component | Type | Notes |
-|-----------|------|-------|
+| --------- | ---- | ----- |
 | [color](./color.md) | `color` | |
 | [date](./date.md) | `date` | |
 | [datetime](./datetime.md) | `datetime-local` | |
@@ -46,7 +46,7 @@ These components are thin wrappers around `zk-input` with `type` pre-set. They a
 ## All Components
 
 | Component | Alias | Description |
-|-----------|-------|-------------|
+| --------- | ----- | ----------- |
 | [additional](./additional.md) | — | Supporting text and character counter |
 | [button](./button.md) | `x-zk-button` | `<button>` element |
 | [checkbox](./checkbox.md) | `x-zk-checkbox` | `<input type="checkbox">` |

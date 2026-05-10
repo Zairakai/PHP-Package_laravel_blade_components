@@ -12,7 +12,7 @@ internal: x-medias.figcaption
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `id` | `string\|null` | `null` | HTML `id` attribute |
 | `class` | `string\|null` | `null` | CSS class(es) |
 

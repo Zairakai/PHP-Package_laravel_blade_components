@@ -12,7 +12,7 @@ internal: x-form.checkbox
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `name` | `string\|null` | `null` | `name` attribute |
 | `id` | `string\|null` | `null` | `id` — falls back to `name` |
 | `field` | `bool` | `true` | Wrap in field structure via `zk-input` |

@@ -12,7 +12,7 @@ internal: x-medias.image
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `src` | `string\|null` | `null` | Image URL |
 | `alt` | `string\|null` | `null` | Alt text |
 | `class` | `string\|null` | `null` | CSS class(es) |

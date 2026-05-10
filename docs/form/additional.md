@@ -12,7 +12,7 @@ internal: x-form.additional
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `text` | `string\|null` | `null` | Supporting/helper text |
 | `counter` | `string\|null` | `null` | Character counter text |
 

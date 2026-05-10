@@ -12,7 +12,7 @@ internal: x-medias.track
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `src` | `string\|null` | `null` | URL of the `.vtt` file |
 | `label` | `string\|null` | `null` | User-visible track label |
 | `kind` | `string\|null` | `null` | `subtitles`, `captions`, `descriptions`, `chapters`, `metadata` |

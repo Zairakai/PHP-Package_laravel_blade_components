@@ -14,7 +14,7 @@ internal: x-form.password
 All [`zk-input`](./input.md) props are accepted and forwarded. Additional props:
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `min` | `int` | `config('blade-components.password.min_characters', 8)` | Minimum character length enforced via `pattern` |
 | `showToggle` | `bool` | `config('blade-components.password.show_toggle', true)` | Render a show/hide eye button |
 

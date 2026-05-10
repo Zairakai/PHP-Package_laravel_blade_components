@@ -12,7 +12,7 @@ internal: x-form.datalist
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `id` | `string\|null` | `null` | `id` attribute — must match the `list` prop on the linked input |
 | `options` | `array` | `[]` | Key-value pairs: `value => label` |
 

@@ -12,7 +12,7 @@ internal: x-form.label
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `label` | `string\|null` | `null` | Label text |
 | `for` | `string\|null` | `null` | Explicit `for` attribute — takes priority over `id` and `name` |
 | `name` | `string\|null` | `null` | Fallback for `for` resolution |

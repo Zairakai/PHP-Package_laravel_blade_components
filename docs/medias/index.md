@@ -3,7 +3,7 @@
 Images, video, audio, and embed components.
 
 | Component | Alias | HTML element | Description |
-|-----------|-------|--------------|-------------|
+| --------- | ----- | ------------ | ----------- |
 | [audio](./audio.md) | `x-zk-audio` | `<audio>` | Audio player with source/track support |
 | [canvas](./canvas.md) | `x-zk-canvas` | `<canvas>` | Canvas element |
 | [figcaption](./figcaption.md) | `x-zk-figcaption` | `<figcaption>` | Figure caption |

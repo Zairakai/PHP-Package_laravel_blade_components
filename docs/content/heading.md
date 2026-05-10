@@ -12,7 +12,7 @@ internal: x-content.heading
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `level` | `int` | `1` | Heading level 1–6, clamped automatically |
 | `class` | `string\|null` | `null` | CSS class(es) merged onto the element |
 

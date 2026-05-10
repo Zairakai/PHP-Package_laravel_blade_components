@@ -12,7 +12,7 @@ internal: x-content.msr
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `class` | `string\|null` | `null` | Additional CSS class(es) — merged with the base `msr` class |
 
 ## Examples

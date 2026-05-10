@@ -3,7 +3,7 @@
 Typography and inline content components.
 
 | Component | Alias | Description |
-|-----------|-------|-------------|
+| --------- | ----- | ----------- |
 | [blockquote](./blockquote.md) | `x-zk-blockquote` | `<blockquote>` wrapper |
 | [heading](./heading.md) | `x-zk-heading` | `<h1>`–`<h6>` with level prop |
 | [link](./link.md) | `x-zk-link` | `<a>` with route resolution and active class |

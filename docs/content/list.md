@@ -12,7 +12,7 @@ internal: x-content.list
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `id` | `string\|null` | `null` | HTML `id` attribute |
 | `class` | `string\|null` | `null` | CSS class(es) |
 | `ordered` | `bool` | `false` | Renders `<ol>` when true, `<ul>` when false |
@@ -23,7 +23,7 @@ internal: x-content.list
 Each item in `items` must have a `type` key. Supported types:
 
 | Type | Renders | Required keys |
-|------|---------|---------------|
+| ---- | ------- | ------------- |
 | `route` | `<x-zk-link>` with route | `route`, `label` |
 | `href` | `<x-zk-link>` with href | `href`, `label` |
 | `button` | `<x-zk-button>` | `label` |

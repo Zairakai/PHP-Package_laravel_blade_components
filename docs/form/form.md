@@ -12,7 +12,7 @@ internal: x-form.form
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `route` | `string\|null` | `null` | Laravel route name — generates `action` |
 | `routeParams` | `array` | `[]` | Parameters passed to `route()` |
 | `action` | `string\|null` | `null` | Explicit action URL — takes precedence over `route` |

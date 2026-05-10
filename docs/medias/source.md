@@ -12,7 +12,7 @@ internal: x-medias.source
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `src` | `string\|null` | `null` | Source URL |
 | `type` | `string\|null` | `null` | MIME type (`video/webm`, `audio/ogg`, etc.) |
 | `sizes` | `string\|null` | `null` | `sizes` attribute |

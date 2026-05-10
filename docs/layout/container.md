@@ -12,7 +12,7 @@ internal: x-layout.container
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `class` | `string\|null` | `null` | Additional CSS class(es) — merged with base `container` class |
 
 ## Example

@@ -12,7 +12,7 @@ internal: x-medias.video
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `sources` | `array\|string\|null` | `null` | Source URL (string) or array of source objects |
 | `tracks` | `array\|string\|null` | `null` | Track URL (string) or array of track objects |
 | `controls` | `bool` | `true` | Show browser controls |

@@ -12,7 +12,7 @@ internal: x-form.button
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `type` | `string` | `'button'` | Button type: `button`, `submit`, `reset` |
 | `name` | `string\|null` | `null` | `name` attribute |
 | `value` | `mixed` | `null` | `value` attribute — uses `old()` automatically |

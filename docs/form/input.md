@@ -12,7 +12,7 @@ internal: x-form.input
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `type` | `string` | `'text'` | Input type attribute |
 | `name` | `string\|null` | `null` | `name` attribute |
 | `id` | `string\|null` | `null` | `id` attribute — auto-generated from `name` when a label is present |

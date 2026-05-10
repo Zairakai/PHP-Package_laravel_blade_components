@@ -12,7 +12,7 @@ internal: x-form.switch
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `name` | `string\|null` | `null` | `name` attribute |
 | `id` | `string\|null` | `null` | `id` — falls back to `name` |
 | `value` | `mixed` | `null` | `value` attribute |

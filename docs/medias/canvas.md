@@ -12,7 +12,7 @@ internal: x-medias.canvas
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `width` | `int\|null` | `null` | Canvas width in pixels |
 | `height` | `int\|null` | `null` | Canvas height in pixels |
 | `class` | `string\|null` | `null` | CSS class(es) |

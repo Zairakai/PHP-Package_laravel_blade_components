@@ -12,7 +12,7 @@ internal: x-medias.object
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `data` | `string\|null` | `null` | Resource URL |
 | `type` | `string\|null` | `null` | MIME type of the resource |
 | `width` | `int\|null` | `null` | Display width |

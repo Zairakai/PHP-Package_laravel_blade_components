@@ -12,7 +12,7 @@ internal: x-form.field
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `name` | `string\|null` | `null` | Field name — used to detect validation errors |
 | `class` | `string\|null` | `null` | Additional CSS class(es) on the wrapper div |
 | `field` | `bool` | `true` | Render the wrapper — set `false` to render slot content directly |

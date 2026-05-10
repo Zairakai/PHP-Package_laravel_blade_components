@@ -12,7 +12,7 @@ internal: x-form.select
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `name` | `string\|null` | `null` | `name` attribute |
 | `id` | `string\|null` | `null` | `id` — falls back to `name` |
 | `options` | `array` | `[]` | Key-value pairs. Nested arrays create `<optgroup>` |

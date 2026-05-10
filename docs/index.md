@@ -5,7 +5,7 @@ Opinionated Laravel Blade component library organised in four families.
 ## Families
 
 | Family | Description |
-|--------|-------------|
+| ------ | ----------- |
 | [content](./content/index.md) | Typography and inline content elements |
 | [form](./form/index.md) | Form controls, wrappers and validation |
 | [layout](./layout/index.md) | Structural and semantic page elements |
@@ -16,7 +16,7 @@ Opinionated Laravel Blade component library organised in four families.
 Every component is registered under two aliases:
 
 | Alias | Example | Purpose |
-|-------|---------|---------|
+| ----- | ------- | ------- |
 | `x-zk-*` | `<x-zk-input>` | Public usage in consumer apps |
 | `x-[family].*` | `<x-form.input>` | Internal usage inside package templates |
 

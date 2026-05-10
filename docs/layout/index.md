@@ -3,7 +3,7 @@
 Structural and semantic HTML page elements.
 
 | Component | Alias | HTML element | Description |
-|-----------|-------|--------------|-------------|
+| --------- | ----- | ------------ | ----------- |
 | [article](./article.md) | `x-zk-article` | `<article>` | Self-contained content block |
 | [aside](./aside.md) | `x-zk-aside` | `<aside>` | Secondary/sidebar content |
 | [breadcrumb](./breadcrumb.md) | `x-zk-breadcrumb` | `<nav>` + `<ol>` | Navigation breadcrumb trail |

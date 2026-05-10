@@ -12,7 +12,7 @@ internal: x-layout.row
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `row` | `string` | `'row'` | Base CSS class |
 | `class` | `string\|null` | `null` | Additional CSS class(es) |
 

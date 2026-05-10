@@ -12,7 +12,7 @@ internal: x-layout.section
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `class` | `string\|null` | `null` | CSS class(es) on the `<section>` element |
 | `container` | `bool` | `true` | Wrap slot content in `<x-zk-container>` |
 

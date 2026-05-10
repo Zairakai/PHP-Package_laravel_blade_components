@@ -12,7 +12,7 @@ internal: x-layout.tabs
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `tabs` | `array` | `[]` | Array of tab definitions |
 | `class` | `string\|null` | `null` | Additional CSS class(es) on the `<ul>` nav element |
 
@@ -21,7 +21,7 @@ All undeclared attributes forward to the outer `<div>` wrapper.
 ## Tab Item Structure
 
 | Key | Type | Required | Description |
-|-----|------|----------|-------------|
+| --- | ---- | -------- | ----------- |
 | `label` | `string` | Yes | Tab button label |
 | `content` | `string` | Yes | Panel HTML content |
 

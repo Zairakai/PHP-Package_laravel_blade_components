@@ -12,7 +12,7 @@ internal: x-form.fieldset
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `legend` | `string\|null` | `null` | Legend text |
 | `legendBefore` | `bool` | `false` | Place legend before slot content (default: after) |
 | `class` | `string\|null` | `null` | CSS class(es) |

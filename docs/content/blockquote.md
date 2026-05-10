@@ -12,7 +12,7 @@ internal: x-content.blockquote
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `cite` | `string\|null` | `null` | URL of the quoted source (`cite` HTML attribute) |
 | `class` | `string\|null` | `null` | CSS class(es) merged onto the element |
 

@@ -12,7 +12,7 @@ internal: x-form.textarea
 ## Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| ---- | ---- | ------- | ----------- |
 | `name` | `string\|null` | `null` | `name` attribute |
 | `id` | `string\|null` | `null` | `id` — falls back to `name` |
 | `value` | `string\|null` | `null` | Content — uses `old()` automatically |
