@@ -30,6 +30,7 @@
     use Zairakai\LaravelBladeComponents\BladeHelpers;
 
     $field = filter_var($field, FILTER_VALIDATE_BOOLEAN);
+    $labelBefore = filter_var($labelBefore, FILTER_VALIDATE_BOOLEAN);
     $id = $id ?? $name;
     $value = BladeHelpers::getOldValue($name, $value);
 

@@ -13,6 +13,11 @@
     'sandbox' => null,
 ])
 
+@php
+    $allowfullscreen      = filter_var($allowfullscreen, FILTER_VALIDATE_BOOLEAN);
+    $allowpaymentrequest  = filter_var($allowpaymentrequest, FILTER_VALIDATE_BOOLEAN);
+@endphp
+
 <iframe
     {{ $attributes->merge(['class' => $class]) }}
     @if($src) src="{{ $src }}" @endif

@@ -3,14 +3,19 @@
     'tabs' => [],
 ])
 
+@php
+    $tabPrefix = uniqid('tab-');
+    $navClass = trim('nav nav-tabs' . ($class ? ' ' . $class : ''));
+@endphp
+
 <div {{ $attributes }}>
-    <ul class="nav nav-tabs @if($class) {{ $class }} @endif">
+    <ul class="{{ $navClass }}">
         @foreach ($tabs as $index => $tab)
             <li class="nav-item">
                 <a
                     class="nav-link @if(0 === $index) active @endif"
                     data-bs-toggle="tab"
-                    href="#tab{{ $index }}">
+                    href="#{{ $tabPrefix }}-{{ $index }}">
                     {{ $tab['label'] }}
                 </a>
             </li>
@@ -19,7 +24,7 @@
     <div class="tab-content">
         @foreach ($tabs as $index => $tab)
             <div
-                id="tab{{ $index }}"
+                id="{{ $tabPrefix }}-{{ $index }}"
                 class="tab-pane fade @if(0 === $index) show active @endif">
                 {{ $tab['content'] }}
             </div>

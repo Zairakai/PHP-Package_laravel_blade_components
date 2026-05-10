@@ -10,6 +10,11 @@
 ])
 
 @php
+    $controls = filter_var($controls, FILTER_VALIDATE_BOOLEAN);
+    $autoplay = filter_var($autoplay, FILTER_VALIDATE_BOOLEAN);
+    $loop     = filter_var($loop, FILTER_VALIDATE_BOOLEAN);
+    $muted    = filter_var($muted, FILTER_VALIDATE_BOOLEAN);
+
     if (is_string($sources)) {
         $sources = [['src' => $sources]];
     }

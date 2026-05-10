@@ -6,6 +6,7 @@
 ])
 
 @php
+    $ordered = filter_var($ordered, FILTER_VALIDATE_BOOLEAN);
     $tag = $ordered ? 'ol' : 'ul';
 @endphp
 
