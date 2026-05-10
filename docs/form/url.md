@@ -7,7 +7,7 @@ internal: x-form.url
 
 # zk-url
 
-> Renders an <input type="url">. All zk-input props accepted.
+> Renders an input of type `url`. All `zk-input` props accepted.
 
 See [zk-input](./input.md) for the full props reference.
 

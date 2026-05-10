@@ -7,7 +7,7 @@ internal: x-form.range
 
 # zk-range
 
-> Renders an <input type="range">. All zk-input props accepted.
+> Renders an input of type `range`. All `zk-input` props accepted.
 
 See [zk-input](./input.md) for the full props reference.
 

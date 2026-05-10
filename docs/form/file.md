@@ -7,7 +7,7 @@ internal: x-form.file
 
 # zk-file
 
-> Renders an <input type="file">. All zk-input props accepted.
+> Renders an input of type `file`. All `zk-input` props accepted.
 
 See [zk-input](./input.md) for the full props reference.
 

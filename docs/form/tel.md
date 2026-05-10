@@ -7,7 +7,7 @@ internal: x-form.tel
 
 # zk-tel
 
-> Renders an <input type="tel">. All zk-input props accepted.
+> Renders an input of type `tel`. All `zk-input` props accepted.
 
 See [zk-input](./input.md) for the full props reference.
 

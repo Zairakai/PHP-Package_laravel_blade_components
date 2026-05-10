@@ -7,7 +7,7 @@ internal: x-form.reset
 
 # zk-reset
 
-> Renders a <button type="reset">. All zk-button props accepted.
+> Renders a button of type `reset`. All `zk-button` props accepted.
 
 See [zk-button](./button.md) for the full props reference.
 

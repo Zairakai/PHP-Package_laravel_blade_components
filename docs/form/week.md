@@ -7,7 +7,7 @@ internal: x-form.week
 
 # zk-week
 
-> Renders an <input type="week">. All zk-input props accepted.
+> Renders an input of type `week`. All `zk-input` props accepted.
 
 See [zk-input](./input.md) for the full props reference.
 

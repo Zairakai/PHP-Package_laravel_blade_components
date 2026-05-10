@@ -7,7 +7,7 @@ internal: x-form.submit
 
 # zk-submit
 
-> Renders a <button type="submit">. All zk-button props accepted.
+> Renders a button of type `submit`. All `zk-button` props accepted.
 
 See [zk-button](./button.md) for the full props reference.
 

@@ -7,7 +7,7 @@ internal: x-form.time
 
 # zk-time
 
-> Renders an <input type="time">. All zk-input props accepted.
+> Renders an input of type `time`. All `zk-input` props accepted.
 
 See [zk-input](./input.md) for the full props reference.
 

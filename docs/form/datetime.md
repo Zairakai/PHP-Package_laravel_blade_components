@@ -7,7 +7,7 @@ internal: x-form.datetime
 
 # zk-datetime
 
-> Renders an <input type="datetime-local">. All zk-input props accepted.
+> Renders an input of type `datetime-local`. All `zk-input` props accepted.
 
 See [zk-input](./input.md) for the full props reference.
 

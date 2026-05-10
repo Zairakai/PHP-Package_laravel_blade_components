@@ -7,7 +7,7 @@ internal: x-form.number
 
 # zk-number
 
-> Renders an <input type="number">. All zk-input props accepted.
+> Renders an input of type `number`. All `zk-input` props accepted.
 
 See [zk-input](./input.md) for the full props reference.
 

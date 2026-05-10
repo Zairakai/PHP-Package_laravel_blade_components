@@ -7,7 +7,7 @@ internal: x-form.date
 
 # zk-date
 
-> Renders an <input type="date">. All zk-input props accepted.
+> Renders an input of type `date`. All `zk-input` props accepted.
 
 See [zk-input](./input.md) for the full props reference.
 

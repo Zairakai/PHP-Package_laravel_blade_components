@@ -7,7 +7,7 @@ internal: x-form.color
 
 # zk-color
 
-> Renders an <input type="color">. All zk-input props accepted.
+> Renders an input of type `color`. All `zk-input` props accepted.
 
 See [zk-input](./input.md) for the full props reference.
 

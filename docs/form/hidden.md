@@ -7,7 +7,7 @@ internal: x-form.hidden
 
 # zk-hidden
 
-> Renders an <input type="hidden"> with no field wrapper.
+> Renders an input of type `hidden` with no field wrapper.
 
 See [zk-input](./input.md) for the full props reference.
 

@@ -7,7 +7,7 @@ internal: x-form.search
 
 # zk-search
 
-> Renders an <input type="search">. All zk-input props accepted.
+> Renders an input of type `search`. All `zk-input` props accepted.
 
 See [zk-input](./input.md) for the full props reference.
 
