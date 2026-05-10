@@ -1,7 +1,9 @@
 @props([
+    'for' => null,
     'name' => null,
     'id' => null,
     'label' => null,
+    'class' => null,
     'msr' => null,
     'iconBefore' => null,
     'iconAfter' => null,
@@ -9,7 +11,14 @@
     'suffix' => null,
 ])
 
-<label for="{{ $id ?? $name }}">
+@php
+    // 'for' takes explicit priority, then id, then name.
+    $forTarget = $for ?? $id ?? $name;
+@endphp
+
+<label
+    {{ $attributes->merge(['class' => $class]) }}
+    @if($forTarget) for="{{ $forTarget }}" @endif>
     @if ($iconBefore)
         <span data-leading-icon>{{ $iconBefore }}</span>
     @endif
@@ -18,7 +27,7 @@
         <span data-prefix>{{ $prefix }}</span>
     @endif
 
-    @if (! is_null($label) && ! is_null($name))
+    @if (! is_null($label))
         <span data-content>
             <span>{{ $label }}</span>
         </span>

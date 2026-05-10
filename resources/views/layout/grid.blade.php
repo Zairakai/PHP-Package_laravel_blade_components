@@ -1,19 +1,13 @@
-@props([
-    'id' => null,
-    'class' => null,
-    'columns' => null,
-])
+@props(['class' => null, 'columns' => null])
 
 @php
-    $class = $class ?? 'grid';
+    $baseClass = $class ?? 'grid';
 
     if (! is_null($columns)) {
-        $class .= ' grid-cols-' . $columns;
+        $baseClass .= ' grid-cols-' . $columns;
     }
 @endphp
 
-<div
-    @if($id) id="{{ $id }}" @endif
-    class="{{ trim($class) }}">
+<div {{ $attributes->merge(['class' => trim($baseClass)]) }}>
     {{ $slot }}
 </div>

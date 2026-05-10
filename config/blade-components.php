@@ -8,11 +8,13 @@ return [
     | Password component
     |--------------------------------------------------------------------------
     |
-    | Minimum number of characters required for the password field.
+    | min_characters : minimum password length enforced via pattern attribute.
+    | show_toggle    : whether to render the show/hide eye button by default.
     |
     */
     'password' => [
         'min_characters' => 8,
+        'show_toggle'    => true,
     ],
 
     /*

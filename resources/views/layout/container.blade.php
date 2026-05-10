@@ -1,16 +1,9 @@
-@props([
-    'id' => null,
-    'class' => null,
-    'role' => null,
-])
+@props(['class' => null])
 
 @php
-    $class .= ' container';
+    $baseClass = trim('container' . ($class ? ' ' . $class : ''));
 @endphp
 
-<div
-    @if($id) id="{{ $id }}" @endif
-    @if($class) class="{{ trim($class) }}" @endif
-    @if($role) role="{{ $role }}" @endif>
+<div {{ $attributes->merge(['class' => $baseClass]) }}>
     {{ $slot }}
 </div>

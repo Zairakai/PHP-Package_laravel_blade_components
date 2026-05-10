@@ -1,15 +1,9 @@
-@props([
-    'level' => 1,
-    'id' => null,
-    'class' => null,
-])
+@props(['level' => 1, 'class' => null])
 
 @php
-    $tag = 'h' . min(max($level, 1), 6); // Ensure the level is between 1 and 6
+    $tag = 'h' . min(max((int) $level, 1), 6);
 @endphp
 
-<{{ $tag }}
-    @if($id) id="{{ $id }}" @endif
-    @if($class) class="{{ $class }}" @endif>
+<{{ $tag }} {{ $attributes->merge(['class' => $class]) }}>
     {{ $slot }}
 </{{ $tag }}>

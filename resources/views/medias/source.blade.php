@@ -7,6 +7,7 @@
 ])
 
 <source
+    {{ $attributes }}
     @if($src) src="{{ $src }}" @endif
     @if($type) type="{{ $type }}" @endif
     @if($sizes) sizes="{{ $sizes }}" @endif

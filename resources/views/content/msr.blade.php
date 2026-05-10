@@ -1,11 +1,9 @@
-@props([
-    'class' => null,
-])
+@props(['class' => null])
 
 @php
-    $class .= ' msr';
+    $baseClass = trim('msr' . ($class ? ' ' . $class : ''));
 @endphp
 
-<span @if($class) class="{{ trim($class) }}" @endif>
+<span {{ $attributes->merge(['class' => $baseClass]) }}>
     {{ $slot }}
 </span>

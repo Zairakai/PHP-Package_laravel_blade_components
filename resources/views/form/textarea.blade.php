@@ -15,7 +15,7 @@
     "wrap" => null,
     "dirname" => null,
     "label" => null,
-    "labelAfter" => false,
+    "labelBefore" => false,
     "fieldClass" => null,
     "iconBefore" => null,
     "iconAfter" => null,
@@ -30,9 +30,9 @@
     use Zairakai\LaravelBladeComponents\BladeHelpers;
 
     $field = filter_var($field, FILTER_VALIDATE_BOOLEAN);
+    $labelBefore = filter_var($labelBefore, FILTER_VALIDATE_BOOLEAN);
     $id = $id ?? $name;
     $value = BladeHelpers::getOldValue($name, $value);
-    $dynamicAttributes = $attributes->filter(fn ($value, $key) => str_starts_with($key, "data-"));
 
     if ($errors->has($name)) {
         $supportingText = $errors->first($name);
@@ -42,7 +42,7 @@
 <x-form.field
     :field="$field"
     class="{{ $fieldClass }}">
-    @if ($field && $label && ! $labelAfter)
+    @if ($field && $label && $labelBefore)
         <x-form.label
             :label="$label"
             :name="$name"
@@ -65,21 +65,19 @@
         <textarea
             id="{{ $id }}"
             name="{{ $name }}"
-            placeholder="{{ $placeholder }}"
-            @if(isset($form)) form="{{ $form }}" @endif
-            @if(isset($required) && $required) required @endif
-            @if(isset($disabled) && $disabled) disabled @endif
-            @if(isset($readonly) && $readonly) readonly @endif
-            @if(isset($autofocus) && $autofocus) autofocus @endif
-            @if(isset($class)) class="{{ $class }}" @endif
-            @if(isset($rows)) rows="{{ $rows }}" @endif
-            @if(isset($cols)) cols="{{ $cols }}" @endif
-            @if(isset($maxlength)) maxlength="{{ $maxlength }}" @endif
-            @if(isset($wrap)) wrap="{{ $wrap }}" @endif
-            @if(isset($dirname)) dirname="{{ $dirname }}" @endif
-            @foreach ($dynamicAttributes as $key => $value)
-                {{ $key }}="{{ $value }}"
-            @endforeach>
+            @if($placeholder) placeholder="{{ $placeholder }}" @endif
+            @if($form) form="{{ $form }}" @endif
+            @if($required) required aria-required="true" @endif
+            @if($disabled) disabled @endif
+            @if($readonly) readonly @endif
+            @if($autofocus) autofocus @endif
+            @if($class) class="{{ $class }}" @endif
+            @if($rows) rows="{{ $rows }}" @endif
+            @if($cols) cols="{{ $cols }}" @endif
+            @if($maxlength) maxlength="{{ $maxlength }}" @endif
+            @if($wrap) wrap="{{ $wrap }}" @endif
+            @if($dirname) dirname="{{ $dirname }}" @endif
+            {{ $attributes }}>
             {{ $value }}
         </textarea>
 
@@ -92,7 +90,7 @@
         @endif
     </div>
 
-    @if ($field && $label && $labelAfter)
+    @if ($field && $label && ! $labelBefore)
         <x-form.label
             :label="$label"
             :name="$name"

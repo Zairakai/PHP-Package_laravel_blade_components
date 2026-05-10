@@ -1,14 +1,5 @@
-@props([
-    'id' => null,
-    'class' => null,
-    'lang' => null,
-    'role' => null,
-])
+@props(['class' => null])
 
-<article
-    @if($id) id="{{ $id }}" @endif
-    @if($class) class="{{ $class }}" @endif
-    @if($lang) lang="{{ $lang }}" @endif
-    @if($role) role="{{ $role }}" @endif>
+<article {{ $attributes->merge(['class' => $class]) }}>
     {{ $slot }}
 </article>

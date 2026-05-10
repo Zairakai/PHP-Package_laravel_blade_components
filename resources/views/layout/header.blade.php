@@ -1,12 +1,5 @@
-@props([
-    'id' => null,
-    'class' => null,
-    'role' => null,
-])
+@props(['class' => null])
 
-<header
-    @if($id) id="{{ $id }}" @endif
-    @if($class) class="{{ $class }}" @endif
-    @if($role) role="{{ $role }}" @endif>
+<header {{ $attributes->merge(['class' => $class]) }}>
     {{ $slot }}
 </header>

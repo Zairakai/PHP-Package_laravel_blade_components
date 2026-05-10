@@ -4,7 +4,7 @@
 ])
 
 @if(! is_null($text) || ! is_null($counter))
-    <div data-additional>
+    <div data-additional {{ $attributes }}>
         @if(! is_null($text))
             <span class="supporting-text">{{ $text }}</span>
         @endif
