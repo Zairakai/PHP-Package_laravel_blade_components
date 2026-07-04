@@ -20,20 +20,18 @@
     $value    = BladeHelpers::getOldValue($name, $value);
 @endphp
 
-@if ($field)
-    <x-form.field class="{{ $fieldClass }}">
-@endif
-        <button
-            type="{{ $type }}"
-            {{ $attributes->merge(['class' => $class]) }}
-            @if($form) form="{{ $form }}" @endif
-            @if($name) name="{{ $name }}" @endif
-            @if(! is_null($value)) value="{{ $value }}" @endif
-            @if($disabled) disabled @endif
-            @if($autofocus) autofocus @endif
-            @if($icon) data-icon="{{ $icon }}" @endif>
-            {{ $slot }}
-        </button>
-@if ($field)
-    </x-form.field>
-@endif
+<x-form.field
+    class="{{ $fieldClass }}"
+    :field="$field">
+    <button
+        type="{{ $type }}"
+        {{ $attributes->merge(['class' => $class]) }}
+        @if($form) form="{{ $form }}" @endif
+        @if($name) name="{{ $name }}" @endif
+        @if(! is_null($value)) value="{{ $value }}" @endif
+        @if($disabled) disabled @endif
+        @if($autofocus) autofocus @endif
+        @if($icon) data-icon="{{ $icon }}" @endif>
+        {{ $slot }}
+    </button>
+</x-form.field>
