@@ -24,7 +24,7 @@
     "height" => null,
     "size" => null,
     "label" => null,
-    "labelBefore" => false,
+    "labelBefore" => true,
     "fieldClass" => null,
     "iconBefore" => null,
     "iconAfter" => null,

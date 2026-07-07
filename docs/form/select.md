@@ -23,7 +23,7 @@ internal: x-form.select
 | `autofocus` | `bool` | `false` | Adds `autofocus` attribute |
 | `form` | `string\|null` | `null` | Associates with a form by id |
 | `label` | `string\|null` | `null` | Label text |
-| `labelBefore` | `bool` | `false` | Place label before the select |
+| `labelBefore` | `bool` | `true` | Place the label before the select; set `false` for label-after |
 | `class` | `string\|null` | `null` | CSS class(es) on the `<select>` element |
 | `field` | `bool` | `true` | Wrap in field structure |
 | `fieldClass` | `string\|null` | `null` | CSS class(es) on the field wrapper |

@@ -16,8 +16,9 @@ internal: x-form.checkbox
 | `name` | `string\|null` | `null` | `name` attribute |
 | `id` | `string\|null` | `null` | `id` — falls back to `name` |
 | `field` | `bool` | `true` | Wrap in field structure via `zk-input` |
+| `labelBefore` | `bool` | `false` | Overrides `zk-input`'s own `true` default — "☐ Label" reads better than the reverse |
 
-All [`zk-input`](./input.md) props are accepted when `field` is `true` (delegated). When `field` is `false`, all undeclared attributes forward directly to the `<input>`.
+All other [`zk-input`](./input.md) props are accepted when `field` is `true` (delegated). When `field` is `false`, all undeclared attributes forward directly to the `<input>`.
 
 ## Examples
 
