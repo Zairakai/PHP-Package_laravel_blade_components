@@ -19,7 +19,7 @@ internal: x-form.input
 | `value` | `mixed` | `null` | Input value — uses `old()` automatically on repopulation |
 | `placeholder` | `string\|null` | `null` | Placeholder text |
 | `label` | `string\|null` | `null` | Label text — renders a `<label>` element |
-| `labelBefore` | `bool` | `false` | Place the label before the input when `true` (default: after) |
+| `labelBefore` | `bool` | `true` | Place the label before the input; set `false` for label-after (e.g. `x-zk-checkbox` overrides this to `false`) |
 | `required` | `bool` | `false` | Adds `required` and `aria-required="true"` |
 | `disabled` | `bool` | `false` | Adds `disabled` attribute |
 | `readonly` | `bool` | `false` | Adds `readonly` attribute |
@@ -72,10 +72,10 @@ internal: x-form.input
 <x-zk-input name="q" placeholder="Search..." :field="false" />
 ```
 
-### Label before the input
+### Label after the input
 
 ```blade
-<x-zk-input name="username" label="Username" :labelBefore="true" />
+<x-zk-input name="username" label="Username" :labelBefore="false" />
 ```
 
 ### With icons and supporting text

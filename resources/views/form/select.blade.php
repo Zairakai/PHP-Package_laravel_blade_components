@@ -10,7 +10,7 @@
     'autofocus' => false,
     'class' => null,
     'label' => null,
-    'labelBefore' => false,
+    'labelBefore' => true,
     'fieldClass' => null,
     'field' => true,
     'iconBefore' => null,

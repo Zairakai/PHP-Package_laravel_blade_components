@@ -18,7 +18,7 @@ internal: x-form.textarea
 | `value` | `string\|null` | `null` | Content — uses `old()` automatically |
 | `placeholder` | `string\|null` | `null` | Placeholder text |
 | `label` | `string\|null` | `null` | Label text |
-| `labelBefore` | `bool` | `false` | Place label before the textarea (default: after) |
+| `labelBefore` | `bool` | `true` | Place the label before the textarea; set `false` for label-after |
 | `required` | `bool` | `false` | Adds `required` and `aria-required="true"` |
 | `disabled` | `bool` | `false` | Adds `disabled` attribute |
 | `readonly` | `bool` | `false` | Adds `readonly` attribute |
@@ -59,10 +59,10 @@ internal: x-form.textarea
     required />
 ```
 
-### Label before the textarea
+### Label after the textarea
 
 ```blade
-<x-zk-textarea name="notes" label="Notes" :labelBefore="true" />
+<x-zk-textarea name="notes" label="Notes" :labelBefore="false" />
 ```
 
 ### Alpine.js character counter
