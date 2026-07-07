@@ -15,7 +15,7 @@
     "wrap" => null,
     "dirname" => null,
     "label" => null,
-    "labelBefore" => false,
+    "labelBefore" => true,
     "fieldClass" => null,
     "iconBefore" => null,
     "iconAfter" => null,
