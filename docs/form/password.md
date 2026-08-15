@@ -34,8 +34,10 @@ Slots accept any content: emoji, SVG, icon font markup, plain text.
 'password' => [
     'min_characters' => 8,
     'show_toggle'    => true,
-    'icon_show'      => '😳', // raw HTML accepted — overridden by iconShow slot
-    'icon_hide'      => '🫣', // raw HTML accepted — overridden by iconHide slot
+    // Defaults reference the icon sprite shipped with the package
+    // (resources/views/icons/sprite.blade.php, injected once per page).
+    'icon_show'      => '<svg width="20" height="20"><use href="#icon-visibility"></use></svg>',
+    'icon_hide'      => '<svg width="20" height="20"><use href="#icon-visibility-off"></use></svg>',
 ],
 ```
 
@@ -99,6 +101,8 @@ Priority: **named slot > app config > component default (emoji)**.
 ## Notes
 
 - The toggle is driven by an inline vanilla JS snippet injected once per page via `@once` — no Alpine.js or other external dependency needed.
+- The icon sprite (`icons.sprite`) is injected once per page via its own `@once`, regardless of how many `x-zk-password` fields are on the page.
 - `data-icon-show` is visible when the field is in `type="password"` state; `data-icon-hide` when in `type="text"`.
 - The toggle button uses `data-label-show` / `data-label-hide` for i18n `aria-label` (translated in 21 languages).
 - The generated `pattern` is `^.{N,}$` where N is the `min` value.
+- Internally the button renders via `x-form.input`'s `trailingContent` prop (raw HTML, scoped strictly to `[data-input]`) rather than `iconAfter` — `iconAfter` is also mirrored into `x-form.label`, which would duplicate an interactive button into the `<label>` element. Consuming apps should position `[data-toggle-visibility]` relative to `[data-password-toggle] [data-input]`, not the outer `[data-password-toggle]` wrapper, so it stays aligned with the input regardless of a validation message rendered below it.

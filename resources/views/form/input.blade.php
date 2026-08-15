@@ -33,6 +33,9 @@
     "suffix" => null,
     "supportingText" => null,
     "supportingCounter" => null,
+    // Raw HTML rendered inside [data-input] only — unlike iconBefore/
+    // iconAfter, never mirrored into x-form.label. See the usage note below.
+    "trailingContent" => null,
 ])
 
 @php
@@ -118,6 +121,17 @@
 
         @if ($iconAfter)
             <span data-trailing-icon>{{ $iconAfter }}</span>
+        @endif
+
+        @if ($trailingContent)
+            {{-- Unlike iconBefore/iconAfter (also mirrored into x-form.label,
+                 see below), this renders raw HTML strictly inside [data-input]
+                 — the box around the input alone, never the label and never
+                 affected by a validation message rendered after this
+                 component at the x-form.field level. Use it for interactive
+                 content (buttons) that a plain label-mirrored text icon can't
+                 represent. --}}
+            <span data-trailing-content>{!! $trailingContent !!}</span>
         @endif
     </div>
 
