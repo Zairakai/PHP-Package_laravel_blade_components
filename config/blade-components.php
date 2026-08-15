@@ -15,11 +15,14 @@ return [
     'password' => [
         'min_characters' => 8,
         'show_toggle'    => true,
-        // Default icons for the toggle button.
+        // Default icons for the toggle button — references the sprite
+        // shipped in resources/views/icons/sprite.blade.php (injected once
+        // per page via @once, see password.blade.php).
         // Override per-component via named slots iconShow / iconHide.
-        // Override globally via the published config (HTML string accepted).
-        'icon_show'      => '😳',
-        'icon_hide'      => '🫣',
+        // Override globally via the published config (HTML string accepted:
+        // emoji, icon font markup, inline SVG...).
+        'icon_show'      => '<svg width="20" height="20"><use href="#icon-visibility"></use></svg>',
+        'icon_hide'      => '<svg width="20" height="20"><use href="#icon-visibility-off"></use></svg>',
     ],
 
     /*
