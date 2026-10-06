@@ -4,13 +4,34 @@ declare(strict_types=1);
 
 namespace Zairakai\LaravelBladeComponents\Tests\Unit;
 
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\ViewErrorBag;
 use PHPUnit\Framework\Attributes\Test;
 use Zairakai\LaravelBladeComponents\Tests\TestCase;
 
 final class ThirdLotComponentsTest extends TestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        View::share('errors', new ViewErrorBag);
+    }
+
+    #[Test]
+    public function a_table_that_fits_one_page_has_no_pagination(): void
+    {
+        $columns = [['key' => 'n', 'label' => 'N']];
+        $html    = $this->render('<x-zk-table :columns="$columns" :rows="[[\'n\' => 1]]" :per-page="10" />', ['columns' => $columns]);
+
+        $this->assertStringContainsString('>1</td>', $html);
+        $this->assertStringNotContainsString('data-table-pagination', $html);
+    }
+
     #[Test]
     public function the_carousel_can_leave_out_the_controls_and_the_indicators(): void
     {
@@ -99,6 +120,16 @@ final class ThirdLotComponentsTest extends TestCase
         $this->assertStringContainsString('code-group-tab', $html);
         $this->assertSame(2, substr_count($html, '<figure'));
         $this->assertStringContainsString('.code-group-input:checked', $styles);
+    }
+
+    #[Test]
+    public function the_components_are_also_registered_under_the_names_of_vue_components(): void
+    {
+        $this->assertStringContainsString('type="checkbox"', $this->render('<x-zk-toggle name="a" />'));
+
+        foreach (['<x-zk-group>x</x-zk-group>' => '<fieldset', '<x-zk-dialog id="d" message="m" />' => '<dialog', '<x-zk-tree-view><x-zk-tree-node label="a" /></x-zk-tree-view>' => 'class="tree', '<x-zk-range-slider name="r" />' => 'type="range"', '<x-zk-color-picker name="c" />' => 'type="color"', '<x-zk-date-picker name="d" />' => 'type="date"', '<x-zk-time-picker name="t" />' => 'type="time"'] as $template => $expected) {
+            $this->assertStringContainsString($expected, $this->render($template), $template);
+        }
     }
 
     #[Test]
@@ -275,6 +306,16 @@ final class ThirdLotComponentsTest extends TestCase
     }
 
     #[Test]
+    public function the_multi_select_is_a_select_with_several_choices(): void
+    {
+        $html = $this->render('<x-zk-multi-select name="roles" :options="[\'a\' => \'A\', \'b\' => \'B\']" />');
+
+        $this->assertStringContainsString('multiple', $html);
+        $this->assertStringContainsString('name="roles[]"', $html);
+        $this->assertMatchesRegularExpression('/>\\s*B\\s*<\\/option>/', $html);
+    }
+
+    #[Test]
     public function the_share_button_and_the_theme_switcher_carry_their_settings_in_data_attributes(): void
     {
         $share   = $this->render('<x-zk-share-button title="T" text="X" url="https://e.org" copied-label="Done" />');
@@ -293,6 +334,24 @@ final class ThirdLotComponentsTest extends TestCase
         $this->assertStringContainsString('>Light</button>', $theme);
         $this->assertStringContainsString('data-zk-share', $scripts);
         $this->assertStringContainsString('data-zk-theme-switcher', $scripts);
+    }
+
+    #[Test]
+    public function the_table_cuts_a_list_in_pages_and_shows_the_pagination(): void
+    {
+        $this->get('/?page=2');
+        $columns = [['key' => 'n', 'label' => 'N']];
+        $rows    = array_map(static fn (int $n): array => ['n' => $n], range(1, 25));
+        $html    = $this->render('<x-zk-table :columns="$columns" :rows="$rows" :per-page="10" />', ['columns' => $columns, 'rows' => $rows]);
+
+        $this->assertStringContainsString('>11</td>', $html);
+        $this->assertStringContainsString('>20</td>', $html);
+        $this->assertStringNotContainsString('>10</td>', $html);
+        $this->assertStringNotContainsString('>21</td>', $html);
+        $this->assertStringContainsString('data-table-pagination', $html);
+        $this->assertStringContainsString('aria-current="page"', $html);
+        $this->assertStringContainsString('page=3', $html);
+        $this->assertStringContainsString('aria-label="Pagination"', $html);
     }
 
     #[Test]
@@ -323,7 +382,23 @@ final class ThirdLotComponentsTest extends TestCase
         $this->assertStringContainsString('data-align="end"', $html);
         $this->assertStringContainsString('>London</td>', $html);
         $this->assertStringContainsString('>Wilmslow</td>', $html);
-        $this->assertSame(1, substr_count($html, 'data-table-sort') + substr_count($html, 'class="data-table-sort"') - substr_count($html, 'data-table-sort'));
+        $this->assertSame(1, substr_count($html, 'class="data-table-sort"'));
+    }
+
+    #[Test]
+    public function the_table_takes_the_page_of_a_laravel_paginator(): void
+    {
+        $columns              = [['key' => 'n', 'label' => 'N']];
+        $lengthAwarePaginator = new LengthAwarePaginator([['n' => 31], ['n' => 32]], 40, 2, 2, ['path' => '/list']);
+        $paginator            = new Paginator([['n' => 1]], 1, 1);
+        $html                 = $this->render('<x-zk-table :columns="$columns" :rows="$lengthAwarePaginator" />', ['columns' => $columns, 'lengthAwarePaginator' => $lengthAwarePaginator]);
+        $last                 = $this->render('<x-zk-table :columns="$columns" :rows="$paginator" />', ['columns' => $columns, 'paginator' => $paginator]);
+
+        $this->assertStringContainsString('>31</td>', $html);
+        $this->assertStringContainsString('>32</td>', $html);
+        $this->assertStringContainsString('page=20', $html);
+        $this->assertStringNotContainsString('page=21', $html);
+        $this->assertStringNotContainsString('data-table-pagination', $last);
     }
 
     #[Test]

@@ -8,6 +8,8 @@ internal: x-display.tree
 # zk-tree
 
 > A tree of nested lists, with expandable branches.
+>
+> Also available as `x-zk-tree-view`, the name that `@zairakai/vue-components` gives it.
 
 ## Props
 
