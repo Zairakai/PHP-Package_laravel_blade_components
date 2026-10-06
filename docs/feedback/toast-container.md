@@ -25,7 +25,7 @@ Undeclared attributes forward to the root element.
 | ---- | ----------- |
 | `default` | The `zk-toast` elements |
 
-`role="region"` and `aria-live="polite"`: what is added to it is announced. The toasts are rendered by the server; there is no timer. To remove them after a few seconds, use a CSS animation on `.toast`, or your own script. No JavaScript.
+`role="region"` and `aria-live="polite"`: what is added to it is announced. The toasts are rendered by the server; there is no timer. To remove them after a few seconds, use a CSS animation on `.toast`, or your own script. No script of its own.
 
 ## Examples
 

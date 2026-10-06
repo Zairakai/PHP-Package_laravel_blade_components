@@ -1,12 +1,13 @@
 # Laravel Blade Components
 
-Opinionated Laravel Blade component library organised in nine families.
+Opinionated Laravel Blade component library organised in ten families.
 
 ## Families
 
 | Family | Description |
 | ------ | ----------- |
 | [content](./content/index.md) | Typography and inline content elements |
+| [data](./data/index.md) | Tables of data |
 | [display](./display/index.md) | Cards, badges, avatars, accordions and other blocks that show information |
 | [feedback](./feedback/index.md) | Alerts, banners, progress and placeholders |
 | [form](./form/index.md) | Form controls, wrappers and validation |

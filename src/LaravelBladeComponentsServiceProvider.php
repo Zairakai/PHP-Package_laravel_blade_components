@@ -35,6 +35,11 @@ class LaravelBladeComponentsServiceProvider extends ServiceProvider
             ], 'zairakai-lang');
 
             $this->publishes([
+                __DIR__ . '/../resources/js'  => resource_path('js/vendor/zairakai'),
+                __DIR__ . '/../resources/css' => resource_path('css/vendor/zairakai'),
+            ], 'zairakai-assets');
+
+            $this->publishes([
                 __DIR__ . '/../config/blade-components.php' => config_path('blade-components.php'),
             ], 'zairakai-config');
 
@@ -54,6 +59,8 @@ class LaravelBladeComponentsServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/blade-components.php', 'blade-components');
+
+        $this->app->scoped(AssetRegistry::class);
     }
 
     /**
@@ -63,6 +70,7 @@ class LaravelBladeComponentsServiceProvider extends ServiceProvider
     {
         $aliases = [
             ...$this->contentAliases(),
+            ...$this->dataAliases(),
             ...$this->displayAliases(),
             ...$this->feedbackAliases(),
             ...$this->formAliases(),
@@ -94,6 +102,22 @@ class LaravelBladeComponentsServiceProvider extends ServiceProvider
             ['zairakai::content.list',       'zk-list'],
             ['zairakai::content.msr',        'zk-msr'],
             ['zairakai::content.paragraph',  'zk-paragraph'],
+            ['zairakai::content.code-block', 'zk-code-block'],
+            ['zairakai::content.code-group', 'zk-code-group'],
+            ['zairakai::content.diff', 'zk-diff'],
+            ['zairakai::content.json-viewer', 'zk-json-viewer'],
+            ['zairakai::content.markdown', 'zk-markdown'],
+            ['zairakai::content.terminal', 'zk-terminal'],
+        ];
+    }
+
+    /**
+     * @return array<array{string, string}>
+     */
+    private function dataAliases(): array
+    {
+        return [
+            ['zairakai::data.table', 'zk-table'],
         ];
     }
 
@@ -121,6 +145,8 @@ class LaravelBladeComponentsServiceProvider extends ServiceProvider
             ['zairakai::display.timeline-item',  'zk-timeline-item'],
             ['zairakai::display.tree',           'zk-tree'],
             ['zairakai::display.tree-item',      'zk-tree-item'],
+            ['zairakai::display.chip-group', 'zk-chip-group'],
+            ['zairakai::display.list-item', 'zk-list-item'],
         ];
     }
 
@@ -136,6 +162,7 @@ class LaravelBladeComponentsServiceProvider extends ServiceProvider
             ['zairakai::feedback.skeleton', 'zk-skeleton'],
             ['zairakai::feedback.toast',    'zk-toast'],
             ['zairakai::feedback.toast-container', 'zk-toast-container'],
+            ['zairakai::feedback.cookie-banner', 'zk-cookie-banner'],
         ];
     }
 
@@ -177,6 +204,7 @@ class LaravelBladeComponentsServiceProvider extends ServiceProvider
             ['zairakai::form.time',       'zk-time'],
             ['zairakai::form.url',        'zk-url'],
             ['zairakai::form.week',       'zk-week'],
+            ['zairakai::form.file-dropzone', 'zk-file-dropzone'],
         ];
     }
 
@@ -227,6 +255,11 @@ class LaravelBladeComponentsServiceProvider extends ServiceProvider
             ['zairakai::layout.section',    'zk-section'],
             ['zairakai::layout.tabs',       'zk-tabs'],
             ['zairakai::layout.wrapper',    'zk-wrapper'],
+            ['zairakai::layout.flex', 'zk-flex'],
+            ['zairakai::layout.flex-item', 'zk-flex-item'],
+            ['zairakai::layout.loader', 'zk-loader'],
+            ['zairakai::layout.spacer', 'zk-spacer'],
+            ['zairakai::layout.sticky', 'zk-sticky'],
         ];
     }
 
@@ -246,6 +279,8 @@ class LaravelBladeComponentsServiceProvider extends ServiceProvider
             ['zairakai::medias.source',     'zk-source'],
             ['zairakai::medias.track',      'zk-track'],
             ['zairakai::medias.video',      'zk-video'],
+            ['zairakai::medias.lazy-image', 'zk-lazy-image'],
+            ['zairakai::medias.lightbox', 'zk-lightbox'],
         ];
     }
 
@@ -276,6 +311,7 @@ class LaravelBladeComponentsServiceProvider extends ServiceProvider
             ['zairakai::overlay.modal',         'zk-modal'],
             ['zairakai::overlay.popover',       'zk-popover'],
             ['zairakai::overlay.tooltip',       'zk-tooltip'],
+            ['zairakai::overlay.confirm-dialog', 'zk-confirm-dialog'],
         ];
     }
 
@@ -287,6 +323,10 @@ class LaravelBladeComponentsServiceProvider extends ServiceProvider
         return [
             ['zairakai::utility.copy-button', 'zk-copy-button'],
             ['zairakai::utility.scripts',     'zk-scripts'],
+            ['zairakai::utility.countdown', 'zk-countdown'],
+            ['zairakai::utility.share-button', 'zk-share-button'],
+            ['zairakai::utility.styles', 'zk-styles'],
+            ['zairakai::utility.theme-switcher', 'zk-theme-switcher'],
         ];
     }
 }
