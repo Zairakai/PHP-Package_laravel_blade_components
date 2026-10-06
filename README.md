@@ -179,6 +179,11 @@ make test           # phpunit with coverage
 **Made with ❤️ by [Zairakai][ecosystem]**
 
 <!-- Reference Links -->
+
+## Statistics
+
+![Statistics of laravel-blade-components][stats-card]
+
 [pipeline-main-badge]: https://gitlab.com/zairakai/php-packages/laravel-blade-components/badges/main/pipeline.svg?ignore_skipped=true&key_text=Main
 [pipeline-main-link]: https://gitlab.com/zairakai/php-packages/laravel-blade-components/commits/main
 [pipeline-develop-badge]: https://gitlab.com/zairakai/php-packages/laravel-blade-components/badges/develop/pipeline.svg?ignore_skipped=true&key_text=Develop
@@ -207,3 +212,4 @@ make test           # phpunit with coverage
 [ecosystem]: https://gitlab.com/zairakai
 [docs]: https://laravel-blade-components-c26c8e.gitlab.io
 [docs-badge]: https://img.shields.io/badge/docs-online-blue
+[stats-card]: https://gitlab.com/zairakai/gitlab-profile/-/raw/main/assets/projects/laravel-blade-components.svg
