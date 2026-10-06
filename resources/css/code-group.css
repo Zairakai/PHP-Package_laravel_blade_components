@@ -1,0 +1,4 @@
+.code-group { display: flex; flex-wrap: wrap; }
+.code-group-input { position: absolute; opacity: 0; pointer-events: none; }
+.code-group-panel { display: none; order: 99; width: 100%; }
+.code-group-input:checked + .code-group-tab + .code-group-panel { display: block; }

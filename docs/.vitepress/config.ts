@@ -8,7 +8,7 @@ const generated = join(here, '..', 'reference', 'sidebar.json')
 const reference = existsSync(generated) ? JSON.parse(readFileSync(generated, 'utf8')) : []
 
 // The pages of the components, written by hand: one folder per family.
-const families = ['form', 'layout', 'content', 'display', 'feedback', 'navigation', 'overlay', 'utility', 'medias'].map((family) => ({
+const families = ['form', 'layout', 'content', 'data', 'display', 'feedback', 'navigation', 'overlay', 'utility', 'medias'].map((family) => ({
   text: family.charAt(0).toUpperCase() + family.slice(1),
   collapsed: true,
   link: `/${family}/`,
