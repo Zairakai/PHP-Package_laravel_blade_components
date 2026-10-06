@@ -8,6 +8,8 @@ internal: x-form.fieldset
 # zk-fieldset
 
 > Renders a `<fieldset>` with an optional `<legend>` element.
+>
+> Also available as `x-zk-group`, the name that `@zairakai/vue-components` gives it.
 
 ## Props
 

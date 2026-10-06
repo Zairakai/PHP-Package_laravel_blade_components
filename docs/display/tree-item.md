@@ -8,6 +8,8 @@ internal: x-display.tree-item
 # zk-tree-item
 
 > A branch (with children) or a leaf of a tree.
+>
+> Also available as `x-zk-tree-node`, the name that `@zairakai/vue-components` gives it.
 
 ## Props
 

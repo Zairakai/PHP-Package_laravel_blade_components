@@ -15,7 +15,7 @@
 [![Static Analysis][phpstan-badge]][phpstan]
 [![Code Style][pint-badge]][pint]
 
-128 reusable Blade components for forms, layouts, content, display, feedback, navigation, overlays, and media — auto-registered with the `zk-` prefix, with full i18n support for 21 languages.
+129 reusable Blade components for forms, layouts, content, display, feedback, navigation, overlays, and media — auto-registered with the `zk-` prefix, with full i18n support for 21 languages.
 
 **Documentation: [laravel-blade-components-c26c8e.gitlab.io][docs]**
 
@@ -23,17 +23,18 @@
 
 ## Features
 
-- **128 components** auto-registered as `<x-zk-*>` — no manual setup required
-- **Form components** (33) — input, select, textarea, checkbox, radio, field, label, button, file, password, switch, and more
+- **129 components** auto-registered as `<x-zk-*>` — no manual setup required
+- **Form components** (34) — input, select, textarea, checkbox, radio, field, label, button, file, password, switch, and more
 - **Layout components** (21) — container, grid, row, column, section, nav, breadcrumb, pagination, tabs, wrapper, and more
 - **Content components** (15) — heading, paragraph, link, list, blockquote, msr, code, kbd, callout, code-block, code-group, terminal, diff, json-viewer, markdown
 - **Display components** (20) — card, badge, avatar, divider, accordion, chip, stat, empty-state, rating, timeline, meter, description-list, tree, carousel (with indicators, buttons and autoplay), chip-group, list-item
 - **Feedback components** (7) — alert, banner, progress, skeleton, toast, cookie-banner
 - **Navigation components** (6) — stepper, skip-link, back-to-top, app-bar, bottom-navigation
 - **Overlay components** (7) — modal, drawer, confirm-dialog, tooltip, popover, dropdown, on native `dialog` and `popover`, no script
-- **Data components** (1) — table, with sort links
+- **Data components** (1) — table, with sort links and pagination (a Laravel paginator, or a list and `perPage`)
 - **Only what the page needs** — `<x-zk-scripts />` and `<x-zk-styles />` print only the scripts and styles of the components that were rendered, in one tag each that takes a CSP nonce; no component uses an inline handler or an inline style
 - **Media components** (12) — image, video, audio, figure, iframe, canvas, source, track, and more
+- **The names of `@zairakai/vue-components`** where a component exists here under another one: `toggle`, `group`, `dialog`, `tree-view`, `tree-node`, `range-slider`, `color-picker`, `date-picker`, `time-picker`, and `multi-select`
 - **Internal cross-component aliases** — `form.field`, `form.input`, `layout.container`, etc.
 - **Publishable assets** — views, translations, and config per individual tags
 - **i18n** — 21 supported locales: `en`, `fr`, `es`, `de`, `it`, `pt`, `nl`, `ar`, `zh`, `ja`, `ko`, `ru`, `uk`, `pl`, `cs`, `ro`, `tr`, `sv`, `da`, `fi`, `no`

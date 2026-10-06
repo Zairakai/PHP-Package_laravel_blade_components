@@ -35,6 +35,7 @@ These components are thin wrappers around `zk-input` with `type` pre-set. They a
 | [email](./email.md) | `email` | Adds browser-side `pattern` from config |
 | [file](./file.md) | `file` | |
 | [month](./month.md) | `month` | |
+| [multi-select](./multi-select.md) | `x-zk-multi-select` | `<select multiple>` |
 | [number](./number.md) | `number` | |
 | [range](./range.md) | `range` | |
 | [search](./search.md) | `search` | |

@@ -8,11 +8,33 @@
     'sortParameter' => 'sort',
     'directionParameter' => 'dir',
     'emptyText' => 'Nothing to show',
+    'perPage' => null,
+    'pageParameter' => 'page',
+    'paginationLabel' => 'Pagination',
 ])
 
 @php
     $sort ??= request()->query($sortParameter);
     $direction ??= request()->query($directionParameter, 'asc');
+
+    // A paginator brings its page; a list is cut here when perPage is given.
+    $currentPage = 1;
+    $lastPage = 1;
+
+    if ($rows instanceof \Illuminate\Contracts\Pagination\LengthAwarePaginator) {
+        $currentPage = $rows->currentPage();
+        $lastPage = $rows->lastPage();
+        $rows = $rows->items();
+    } elseif ($rows instanceof \Illuminate\Contracts\Pagination\Paginator) {
+        $currentPage = $rows->currentPage();
+        $lastPage = $rows->hasMorePages() ? $currentPage + 1 : $currentPage;
+        $rows = $rows->items();
+    } elseif (null !== $perPage && $perPage > 0) {
+        $all = collect($rows)->values();
+        $lastPage = max(1, (int) ceil($all->count() / $perPage));
+        $currentPage = max(1, min($lastPage, (int) request()->query($pageParameter, 1)));
+        $rows = $all->slice(($currentPage - 1) * $perPage, $perPage)->all();
+    }
 @endphp
 
 <div class="data-table-wrapper">
@@ -32,7 +54,7 @@
                         @if (! empty($column['align'])) data-align="{{ $column['align'] }}" @endif
                         @if ($sorted) aria-sort="{{ 'desc' === $direction ? 'descending' : 'ascending' }}" @endif>
                         @if (! empty($column['sortable']))
-                            <a class="data-table-sort" href="{{ request()->fullUrlWithQuery([$sortParameter => $column['key'], $directionParameter => $sorted && 'asc' === $direction ? 'desc' : 'asc', 'page' => null]) }}">{{ $column['label'] }}</a>
+                            <a class="data-table-sort" href="{{ request()->fullUrlWithQuery([$sortParameter => $column['key'], $directionParameter => $sorted && 'asc' === $direction ? 'desc' : 'asc', $pageParameter => null]) }}">{{ $column['label'] }}</a>
                         @else
                             {{ $column['label'] }}
                         @endif
@@ -54,4 +76,7 @@
             @endforelse
         </tbody>
     </table>
+    @if ($lastPage > 1)
+        <x-zk-pagination :current-page="$currentPage" :total-pages="$lastPage" :page-param="$pageParameter" :aria-label="$paginationLabel" class="data-table-pagination" />
+    @endif
 </div>

@@ -8,6 +8,8 @@ internal: x-overlay.confirm-dialog
 # zk-confirm-dialog
 
 > A confirmation (or a notice) in a native dialog, with its buttons.
+>
+> Also available as `x-zk-dialog`, the name that `@zairakai/vue-components` gives it.
 
 ## Props
 
