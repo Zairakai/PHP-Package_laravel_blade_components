@@ -23,6 +23,6 @@
         <div class="alert-actions">{{ $actions }}</div>
     @endisset
     @if ($dismissible)
-        <button type="button" class="alert-close" aria-label="{{ $closeLabel }}" onclick="this.closest('.alert').remove()">&times;</button>
+        <button type="button" class="alert-close" aria-label="{{ $closeLabel }}" data-zk-dismiss=".alert">&times;</button>
     @endif
 </div>

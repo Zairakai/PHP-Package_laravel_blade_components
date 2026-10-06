@@ -64,9 +64,11 @@ These components are thin wrappers around `zk-input` with `type` pre-set. They a
 | [label](./label.md) | — | `<label>` with icon/prefix/suffix |
 | [month](./month.md) | `x-zk-month` | `<input type="month">` |
 | [number](./number.md) | `x-zk-number` | `<input type="number">` |
+| [otp](./otp.md) | `x-zk-otp` | One-time code field |
 | [password](./password.md) | `x-zk-password` | `<input type="password">` with toggle |
 | [radio](./radio.md) | `x-zk-radio` | `<input type="radio">` |
 | [range](./range.md) | `x-zk-range` | `<input type="range">` |
+| [rating-input](./rating-input.md) | `x-zk-rating-input` | Stars to choose a rating |
 | [reset](./reset.md) | `x-zk-reset` | `<button type="reset">` |
 | [search](./search.md) | `x-zk-search` | `<input type="search">` |
 | [select](./select.md) | `x-zk-select` | `<select>` with optgroup support |

@@ -17,6 +17,6 @@
         <div class="banner-actions">{{ $actions }}</div>
     @endisset
     @if ($dismissible)
-        <button type="button" class="banner-dismiss" aria-label="{{ $dismissLabel }}" onclick="this.closest('.banner').remove()">&times;</button>
+        <button type="button" class="banner-dismiss" aria-label="{{ $dismissLabel }}" data-zk-dismiss=".banner">&times;</button>
     @endif
 </div>
