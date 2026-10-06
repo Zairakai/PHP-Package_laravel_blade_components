@@ -15,7 +15,7 @@
 [![Static Analysis][phpstan-badge]][phpstan]
 [![Code Style][pint-badge]][pint]
 
-62 reusable Blade components for forms, layouts, content, and media — auto-registered with the `zk-` prefix, with full i18n support for 21 languages.
+84 reusable Blade components for forms, layouts, content, display, feedback, overlays, and media — auto-registered with the `zk-` prefix, with full i18n support for 21 languages.
 
 **Documentation: [laravel-blade-components-c26c8e.gitlab.io][docs]**
 
@@ -23,10 +23,13 @@
 
 ## Features
 
-- **62 components** auto-registered as `<x-zk-*>` — no manual setup required
+- **84 components** auto-registered as `<x-zk-*>` — no manual setup required
 - **Form components** (30) — input, select, textarea, checkbox, radio, field, label, button, file, password, switch, and more
 - **Layout components** (16) — container, grid, row, column, section, nav, breadcrumb, pagination, tabs, wrapper, and more
-- **Content components** (6) — heading, paragraph, link, list, blockquote, msr
+- **Content components** (9) — heading, paragraph, link, list, blockquote, msr, code, kbd, callout
+- **Display components** (9) — card, badge, avatar, divider, accordion, chip, stat, empty-state
+- **Feedback components** (4) — alert, banner, progress, skeleton
+- **Overlay components** (6) — modal, drawer, tooltip, popover, dropdown, on native `dialog` and `popover`, no script
 - **Media components** (10) — image, video, audio, figure, iframe, canvas, source, track, and more
 - **Internal cross-component aliases** — `form.field`, `form.input`, `layout.container`, etc.
 - **Publishable assets** — views, translations, and config per individual tags
@@ -100,7 +103,41 @@ No service provider registration needed — the package auto-discovers via Larav
 <x-zk-blockquote>A quoted passage.</x-zk-blockquote>
 
 <x-zk-list :items="$features" />
+
+<x-zk-callout variant="warning" title="Careful">This resets your settings.</x-zk-callout>
+<x-zk-kbd :keys="['Ctrl', 'K']" />
 ```
+
+### Display and feedback
+
+The new components are unstyled: they give the markup, the accessibility and the same class hooks and `data-*` attributes as [`@zairakai/vue-components`](https://www.npmjs.com/package/@zairakai/vue-components) (`.badge[data-variant="success"]`, `.alert[data-variant="error"]`), so one style sheet serves both.
+
+```blade
+<x-zk-card title="Profile">
+    <x-zk-avatar name="Ada Lovelace" />
+    <x-zk-badge variant="success">Active</x-zk-badge>
+</x-zk-card>
+
+<x-zk-alert variant="error" title="Payment failed" :dismissible="true">Your card was declined.</x-zk-alert>
+<x-zk-progress :value="40" label="Upload" />
+```
+
+### Overlays
+
+```blade
+<button commandfor="confirm" command="show-modal">Delete</button>
+
+<x-zk-modal id="confirm" title="Delete this project?">
+    This cannot be undone.
+</x-zk-modal>
+
+<x-zk-dropdown id="account" label="Account">
+    <x-slot:trigger>Account</x-slot>
+    <x-zk-dropdown-item href="/profile">Profile</x-zk-dropdown-item>
+</x-zk-dropdown>
+```
+
+A closing `</x-slot>` must be followed by a line break, or Blade reads the next word as part of the directive.
 
 ### Media
 
