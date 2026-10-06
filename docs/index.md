@@ -1,6 +1,6 @@
 # Laravel Blade Components
 
-Opinionated Laravel Blade component library organised in seven families.
+Opinionated Laravel Blade component library organised in nine families.
 
 ## Families
 
@@ -12,7 +12,9 @@ Opinionated Laravel Blade component library organised in seven families.
 | [form](./form/index.md) | Form controls, wrappers and validation |
 | [layout](./layout/index.md) | Structural and semantic page elements |
 | [medias](./medias/index.md) | Images, video, audio and embeds |
+| [navigation](./navigation/index.md) | Steps, shortcuts and the bars of an application |
 | [overlay](./overlay/index.md) | Modal, drawer, popover, dropdown and tooltip, on native HTML |
+| [utility](./utility/index.md) | The one script of the library, with a CSP nonce, and what uses it |
 
 ## Aliases
 
