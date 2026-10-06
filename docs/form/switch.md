@@ -8,6 +8,8 @@ internal: x-form.switch
 # zk-switch
 
 > Styled checkbox rendered as a toggle switch. Delegates to `zk-checkbox` with a `switch` field class applied automatically.
+>
+> Also available as `x-zk-toggle`, the name that `@zairakai/vue-components` gives it.
 
 ## Props
 

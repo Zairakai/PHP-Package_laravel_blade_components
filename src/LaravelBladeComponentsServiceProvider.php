@@ -79,6 +79,7 @@ class LaravelBladeComponentsServiceProvider extends ServiceProvider
             ...$this->navigationAliases(),
             ...$this->overlayAliases(),
             ...$this->utilityAliases(),
+            ...$this->vueAliases(),
             ...$this->internalAliases(),
         ];
 
@@ -188,6 +189,7 @@ class LaravelBladeComponentsServiceProvider extends ServiceProvider
             ['zairakai::form.input',      'zk-input'],
             ['zairakai::form.label',      'zk-label'],
             ['zairakai::form.month',      'zk-month'],
+            ['zairakai::form.multi-select', 'zk-multi-select'],
             ['zairakai::form.number',     'zk-number'],
             ['zairakai::form.otp',        'zk-otp'],
             ['zairakai::form.password',   'zk-password'],
@@ -327,6 +329,29 @@ class LaravelBladeComponentsServiceProvider extends ServiceProvider
             ['zairakai::utility.share-button', 'zk-share-button'],
             ['zairakai::utility.styles', 'zk-styles'],
             ['zairakai::utility.theme-switcher', 'zk-theme-switcher'],
+        ];
+    }
+
+    /**
+     * @return array<array{string, string}>
+     */
+    /**
+     * The names that @zairakai/vue-components gives to components that exist here under another name.
+     *
+     * @return array<array{string, string}>
+     */
+    private function vueAliases(): array
+    {
+        return [
+            ['zairakai::form.switch', 'zk-toggle'],
+            ['zairakai::form.fieldset', 'zk-group'],
+            ['zairakai::overlay.confirm-dialog', 'zk-dialog'],
+            ['zairakai::display.tree', 'zk-tree-view'],
+            ['zairakai::display.tree-item', 'zk-tree-node'],
+            ['zairakai::form.range', 'zk-range-slider'],
+            ['zairakai::form.color', 'zk-color-picker'],
+            ['zairakai::form.date', 'zk-date-picker'],
+            ['zairakai::form.time', 'zk-time-picker'],
         ];
     }
 }
