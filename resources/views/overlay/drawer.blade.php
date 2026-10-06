@@ -7,6 +7,8 @@
     'closeLabel' => 'Close',
 ])
 
+@php(app(\Zairakai\LaravelBladeComponents\AssetRegistry::class)->script('modal'))
+
 <dialog
     id="{{ $id }}"
     @if ($title) aria-labelledby="{{ $id }}-title" @endif

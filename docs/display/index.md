@@ -11,10 +11,12 @@ Cards, badges, avatars and other blocks that show information.
 | [card](./card.md) | `x-zk-card` | Header, body and footer |
 | [carousel-slide](./carousel-slide.md) | `x-zk-carousel-slide` | One slide of a carousel |
 | [carousel](./carousel.md) | `x-zk-carousel` | Slides that scroll and snap |
+| [chip-group](./chip-group.md) | `x-zk-chip-group` | Group of chips |
 | [chip](./chip.md) | `x-zk-chip` | Compact tag with a remove button |
 | [description-list](./description-list.md) | `x-zk-description-list` | Terms and descriptions |
 | [divider](./divider.md) | `x-zk-divider` | Separator, with or without a label |
 | [empty-state](./empty-state.md) | `x-zk-empty-state` | Nothing to show |
+| [list-item](./list-item.md) | `x-zk-list-item` | Item of a list |
 | [meter](./meter.md) | `x-zk-meter` | Native gauge |
 | [rating](./rating.md) | `x-zk-rating` | Read-only stars |
 | [stat](./stat.md) | `x-zk-stat` | A figure and its change |

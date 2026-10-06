@@ -6,6 +6,10 @@
     'closeLabel' => 'Close',
 ])
 
+@if ($dismissible)
+    @php(app(\Zairakai\LaravelBladeComponents\AssetRegistry::class)->script('dismiss'))
+@endif
+
 <div
     role="{{ in_array($variant, ['warning', 'error'], true) ? 'alert' : 'status' }}"
     data-variant="{{ $variant }}"

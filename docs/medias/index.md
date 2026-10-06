@@ -10,6 +10,8 @@ Images, video, audio, and embed components.
 | [figure](./figure.md) | `x-zk-figure` | `<figure>` | Figure wrapper |
 | [iframe](./iframe.md) | `x-zk-iframe` | `<iframe>` | Embedded frame |
 | [image](./image.md) | `x-zk-image` | `<img>` | Image with srcset and crossorigin support |
+| [lazy-image](./lazy-image.md) | `x-zk-lazy-image` | `<img>` and `<dialog>` | Image loaded when it is in view |
+| [lightbox](./lightbox.md) | `x-zk-lightbox` | `<img>` and `<dialog>` | Thumbnails that open in a modal window |
 | [object](./object.md) | `x-zk-object` | `<object>` | Embedded object |
 | [source](./source.md) | `x-zk-source` | `<source>` | Media source — child of audio/video |
 | [track](./track.md) | `x-zk-track` | `<track>` | Text track — child of audio/video |

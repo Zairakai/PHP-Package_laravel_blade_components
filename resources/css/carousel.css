@@ -1,0 +1,4 @@
+.carousel-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; }
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-slide { flex: 0 0 100%; scroll-snap-align: start; }
+@media (prefers-reduced-motion: reduce) { .carousel-track { scroll-behavior: auto; } }
