@@ -1,15 +1,18 @@
 # Laravel Blade Components
 
-Opinionated Laravel Blade component library organised in four families.
+Opinionated Laravel Blade component library organised in seven families.
 
 ## Families
 
 | Family | Description |
 | ------ | ----------- |
 | [content](./content/index.md) | Typography and inline content elements |
+| [display](./display/index.md) | Cards, badges, avatars, accordions and other blocks that show information |
+| [feedback](./feedback/index.md) | Alerts, banners, progress and placeholders |
 | [form](./form/index.md) | Form controls, wrappers and validation |
 | [layout](./layout/index.md) | Structural and semantic page elements |
 | [medias](./medias/index.md) | Images, video, audio and embeds |
+| [overlay](./overlay/index.md) | Modal, drawer, popover, dropdown and tooltip, on native HTML |
 
 ## Aliases
 
