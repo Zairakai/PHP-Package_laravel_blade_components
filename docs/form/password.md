@@ -106,3 +106,13 @@ Priority: **named slot > app config > component default (emoji)**.
 - The toggle button uses `data-label-show` / `data-label-hide` for i18n `aria-label` (translated in 21 languages).
 - The generated `pattern` is `^.{N,}$` where N is the `min` value.
 - Internally the button renders via `x-form.input`'s `trailingContent` prop (raw HTML, scoped strictly to `[data-input]`) rather than `iconAfter` — `iconAfter` is also mirrored into `x-form.label`, which would duplicate an interactive button into the `<label>` element. Consuming apps should position `[data-toggle-visibility]` relative to `[data-password-toggle] [data-input]`, not the outer `[data-password-toggle]` wrapper, so it stays aligned with the input regardless of a validation message rendered below it.
+- **Browser gotcha**: the sprite's `<path fill="currentColor">` is a presentation attribute, and it does not reliably resolve through `<symbol>`/`<use>` in Chromium — it can render as plain black regardless of the ambient inherited color, independently of whether that color itself is correct. Consuming apps must add an explicit CSS rule to actually get the intended color:
+
+  ```css
+  [data-toggle-visibility] svg,
+  [data-toggle-visibility] use {
+    fill: currentColor;
+  }
+  ```
+
+  Set alongside an explicit `color` on `[data-toggle-visibility]` itself (`all: unset` resets from a plain CSS reset — see `app.scss` — resets color to `inherit`, which without an explicit value drifts to whatever the ambient text color happens to be, not necessarily readable against the input's background).
