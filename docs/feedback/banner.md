@@ -14,7 +14,7 @@ internal: x-feedback.banner
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
 | `variant` | `string` | `'info'` | `data-variant`; `warning` and `error` have `role="alert"` |
-| `dismissible` | `bool` | `false` | Shows a dismiss button that removes the banner (inline `onclick`) |
+| `dismissible` | `bool` | `false` | Shows a dismiss button (`data-zk-dismiss=".banner"`, needs `zk-scripts`) |
 | `dismissLabel` | `string` | `'Dismiss'` | Accessible name of the button |
 | `class` | `string\|null` | `null` | CSS class(es) merged onto the root element |
 

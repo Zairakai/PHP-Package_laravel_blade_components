@@ -29,7 +29,7 @@ Undeclared attributes forward to the root element.
 | `default` | Body |
 | `footer` | Footer with the actions |
 
-The close button and any `<form method="dialog">` close it with no script. To open it, use a button with `commandfor` and `command="show-modal"` (supported by current browsers) or, for older ones, `onclick="document.getElementById('confirm').showModal()"`.
+The close button and any `<form method="dialog">` close it with no script. To open it, use a button with `commandfor` and `command="show-modal"` (supported by current browsers) or, for older ones, `data-zk-modal="confirm"` on the button with [zk-scripts](../utility/scripts.md).
 
 Class hooks: `modal`, `modal-header`, `modal-title`, `modal-close`, `modal-body`, `modal-footer`. Style the open one with `.modal[open]` and the backdrop with `.modal::backdrop`.
 

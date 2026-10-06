@@ -15,7 +15,7 @@
 [![Static Analysis][phpstan-badge]][phpstan]
 [![Code Style][pint-badge]][pint]
 
-84 reusable Blade components for forms, layouts, content, display, feedback, overlays, and media — auto-registered with the `zk-` prefix, with full i18n support for 21 languages.
+105 reusable Blade components for forms, layouts, content, display, feedback, navigation, overlays, and media — auto-registered with the `zk-` prefix, with full i18n support for 21 languages.
 
 **Documentation: [laravel-blade-components-c26c8e.gitlab.io][docs]**
 
@@ -23,13 +23,15 @@
 
 ## Features
 
-- **84 components** auto-registered as `<x-zk-*>` — no manual setup required
-- **Form components** (30) — input, select, textarea, checkbox, radio, field, label, button, file, password, switch, and more
+- **105 components** auto-registered as `<x-zk-*>` — no manual setup required
+- **Form components** (32) — input, select, textarea, checkbox, radio, field, label, button, file, password, switch, and more
 - **Layout components** (16) — container, grid, row, column, section, nav, breadcrumb, pagination, tabs, wrapper, and more
 - **Content components** (9) — heading, paragraph, link, list, blockquote, msr, code, kbd, callout
-- **Display components** (9) — card, badge, avatar, divider, accordion, chip, stat, empty-state
-- **Feedback components** (4) — alert, banner, progress, skeleton
+- **Display components** (18) — card, badge, avatar, divider, accordion, chip, stat, empty-state, rating, timeline, meter, description-list, tree, carousel
+- **Feedback components** (6) — alert, banner, progress, skeleton, toast
+- **Navigation components** (6) — stepper, skip-link, back-to-top, app-bar, bottom-navigation
 - **Overlay components** (6) — modal, drawer, tooltip, popover, dropdown, on native `dialog` and `popover`, no script
+- **One script, CSP-safe** — `<x-zk-scripts />` prints a single `<script>` that takes a nonce; no component uses an inline handler
 - **Media components** (10) — image, video, audio, figure, iframe, canvas, source, track, and more
 - **Internal cross-component aliases** — `form.field`, `form.input`, `layout.container`, etc.
 - **Publishable assets** — views, translations, and config per individual tags
@@ -120,6 +122,15 @@ The new components are unstyled: they give the markup, the accessibility and the
 
 <x-zk-alert variant="error" title="Payment failed" :dismissible="true">Your card was declined.</x-zk-alert>
 <x-zk-progress :value="40" label="Upload" />
+```
+
+### Content security policy
+
+The components need no script, except three small actions (dismiss, copy, open a modal on older browsers). They are written as data attributes, and one component prints the code for them, with your nonce:
+
+```blade
+<x-zk-scripts />                    {{-- the nonce of Vite::cspNonce(), when there is one --}}
+<x-zk-scripts :nonce="$nonce" />    {{-- or yours --}}
 ```
 
 ### Overlays

@@ -19,13 +19,15 @@ class LaravelBladeComponentsServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../resources/views/content'  => resource_path('views/vendor/zairakai/content'),
-                __DIR__ . '/../resources/views/display'  => resource_path('views/vendor/zairakai/display'),
-                __DIR__ . '/../resources/views/feedback' => resource_path('views/vendor/zairakai/feedback'),
-                __DIR__ . '/../resources/views/form'     => resource_path('views/vendor/zairakai/form'),
-                __DIR__ . '/../resources/views/layout'   => resource_path('views/vendor/zairakai/layout'),
-                __DIR__ . '/../resources/views/medias'   => resource_path('views/vendor/zairakai/medias'),
-                __DIR__ . '/../resources/views/overlay'  => resource_path('views/vendor/zairakai/overlay'),
+                __DIR__ . '/../resources/views/content'    => resource_path('views/vendor/zairakai/content'),
+                __DIR__ . '/../resources/views/display'    => resource_path('views/vendor/zairakai/display'),
+                __DIR__ . '/../resources/views/feedback'   => resource_path('views/vendor/zairakai/feedback'),
+                __DIR__ . '/../resources/views/form'       => resource_path('views/vendor/zairakai/form'),
+                __DIR__ . '/../resources/views/layout'     => resource_path('views/vendor/zairakai/layout'),
+                __DIR__ . '/../resources/views/medias'     => resource_path('views/vendor/zairakai/medias'),
+                __DIR__ . '/../resources/views/navigation' => resource_path('views/vendor/zairakai/navigation'),
+                __DIR__ . '/../resources/views/overlay'    => resource_path('views/vendor/zairakai/overlay'),
+                __DIR__ . '/../resources/views/utility'    => resource_path('views/vendor/zairakai/utility'),
             ], 'zairakai-components');
 
             $this->publishes([
@@ -66,7 +68,9 @@ class LaravelBladeComponentsServiceProvider extends ServiceProvider
             ...$this->formAliases(),
             ...$this->layoutAliases(),
             ...$this->mediaAliases(),
+            ...$this->navigationAliases(),
             ...$this->overlayAliases(),
+            ...$this->utilityAliases(),
             ...$this->internalAliases(),
         ];
 
@@ -104,10 +108,19 @@ class LaravelBladeComponentsServiceProvider extends ServiceProvider
             ['zairakai::display.avatar',         'zk-avatar'],
             ['zairakai::display.badge',          'zk-badge'],
             ['zairakai::display.card',           'zk-card'],
+            ['zairakai::display.carousel',       'zk-carousel'],
+            ['zairakai::display.carousel-slide', 'zk-carousel-slide'],
             ['zairakai::display.chip',           'zk-chip'],
+            ['zairakai::display.description-list', 'zk-description-list'],
             ['zairakai::display.divider',        'zk-divider'],
             ['zairakai::display.empty-state',    'zk-empty-state'],
+            ['zairakai::display.meter',          'zk-meter'],
+            ['zairakai::display.rating',         'zk-rating'],
             ['zairakai::display.stat',           'zk-stat'],
+            ['zairakai::display.timeline',       'zk-timeline'],
+            ['zairakai::display.timeline-item',  'zk-timeline-item'],
+            ['zairakai::display.tree',           'zk-tree'],
+            ['zairakai::display.tree-item',      'zk-tree-item'],
         ];
     }
 
@@ -121,6 +134,8 @@ class LaravelBladeComponentsServiceProvider extends ServiceProvider
             ['zairakai::feedback.banner',   'zk-banner'],
             ['zairakai::feedback.progress', 'zk-progress'],
             ['zairakai::feedback.skeleton', 'zk-skeleton'],
+            ['zairakai::feedback.toast',    'zk-toast'],
+            ['zairakai::feedback.toast-container', 'zk-toast-container'],
         ];
     }
 
@@ -147,9 +162,11 @@ class LaravelBladeComponentsServiceProvider extends ServiceProvider
             ['zairakai::form.label',      'zk-label'],
             ['zairakai::form.month',      'zk-month'],
             ['zairakai::form.number',     'zk-number'],
+            ['zairakai::form.otp',        'zk-otp'],
             ['zairakai::form.password',   'zk-password'],
             ['zairakai::form.radio',      'zk-radio'],
             ['zairakai::form.range',      'zk-range'],
+            ['zairakai::form.rating-input', 'zk-rating-input'],
             ['zairakai::form.reset',      'zk-reset'],
             ['zairakai::form.search',     'zk-search'],
             ['zairakai::form.select',     'zk-select'],
@@ -235,6 +252,21 @@ class LaravelBladeComponentsServiceProvider extends ServiceProvider
     /**
      * @return array<array{string, string}>
      */
+    private function navigationAliases(): array
+    {
+        return [
+            ['zairakai::navigation.app-bar',                 'zk-app-bar'],
+            ['zairakai::navigation.back-to-top',             'zk-back-to-top'],
+            ['zairakai::navigation.bottom-navigation',       'zk-bottom-navigation'],
+            ['zairakai::navigation.bottom-navigation-item',  'zk-bottom-navigation-item'],
+            ['zairakai::navigation.skip-link',               'zk-skip-link'],
+            ['zairakai::navigation.stepper',                 'zk-stepper'],
+        ];
+    }
+
+    /**
+     * @return array<array{string, string}>
+     */
     private function overlayAliases(): array
     {
         return [
@@ -244,6 +276,17 @@ class LaravelBladeComponentsServiceProvider extends ServiceProvider
             ['zairakai::overlay.modal',         'zk-modal'],
             ['zairakai::overlay.popover',       'zk-popover'],
             ['zairakai::overlay.tooltip',       'zk-tooltip'],
+        ];
+    }
+
+    /**
+     * @return array<array{string, string}>
+     */
+    private function utilityAliases(): array
+    {
+        return [
+            ['zairakai::utility.copy-button', 'zk-copy-button'],
+            ['zairakai::utility.scripts',     'zk-scripts'],
         ];
     }
 }
