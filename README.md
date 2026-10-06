@@ -6,6 +6,7 @@
 
 [![GitLab Release][gitlab-release-badge]][gitlab-release]
 [![Packagist][packagist-badge]][packagist]
+[![Docs][docs-badge]][docs]
 [![Downloads][downloads-badge]][packagist]
 [![License][license-badge]][license]
 
@@ -15,6 +16,8 @@
 [![Code Style][pint-badge]][pint]
 
 62 reusable Blade components for forms, layouts, content, and media — auto-registered with the `zk-` prefix, with full i18n support for 21 languages.
+
+**Documentation: [laravel-blade-components-c26c8e.gitlab.io][docs]**
 
 ---
 
@@ -202,3 +205,5 @@ make test           # phpunit with coverage
 [pint-badge]: https://img.shields.io/badge/code%20style-pint-22C55E.svg
 [pint]: https://laravel.com/docs/pint
 [ecosystem]: https://gitlab.com/zairakai
+[docs]: https://laravel-blade-components-c26c8e.gitlab.io
+[docs-badge]: https://img.shields.io/badge/docs-online-blue
