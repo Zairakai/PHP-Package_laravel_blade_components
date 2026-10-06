@@ -19,10 +19,13 @@ class LaravelBladeComponentsServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../resources/views/content' => resource_path('views/vendor/zairakai/content'),
-                __DIR__ . '/../resources/views/form'    => resource_path('views/vendor/zairakai/form'),
-                __DIR__ . '/../resources/views/layout'  => resource_path('views/vendor/zairakai/layout'),
-                __DIR__ . '/../resources/views/medias'  => resource_path('views/vendor/zairakai/medias'),
+                __DIR__ . '/../resources/views/content'  => resource_path('views/vendor/zairakai/content'),
+                __DIR__ . '/../resources/views/display'  => resource_path('views/vendor/zairakai/display'),
+                __DIR__ . '/../resources/views/feedback' => resource_path('views/vendor/zairakai/feedback'),
+                __DIR__ . '/../resources/views/form'     => resource_path('views/vendor/zairakai/form'),
+                __DIR__ . '/../resources/views/layout'   => resource_path('views/vendor/zairakai/layout'),
+                __DIR__ . '/../resources/views/medias'   => resource_path('views/vendor/zairakai/medias'),
+                __DIR__ . '/../resources/views/overlay'  => resource_path('views/vendor/zairakai/overlay'),
             ], 'zairakai-components');
 
             $this->publishes([
@@ -58,9 +61,12 @@ class LaravelBladeComponentsServiceProvider extends ServiceProvider
     {
         $aliases = [
             ...$this->contentAliases(),
+            ...$this->displayAliases(),
+            ...$this->feedbackAliases(),
             ...$this->formAliases(),
             ...$this->layoutAliases(),
             ...$this->mediaAliases(),
+            ...$this->overlayAliases(),
             ...$this->internalAliases(),
         ];
 
@@ -76,11 +82,45 @@ class LaravelBladeComponentsServiceProvider extends ServiceProvider
     {
         return [
             ['zairakai::content.blockquote', 'zk-blockquote'],
+            ['zairakai::content.callout',    'zk-callout'],
+            ['zairakai::content.code',       'zk-code'],
             ['zairakai::content.heading',    'zk-heading'],
+            ['zairakai::content.kbd',        'zk-kbd'],
             ['zairakai::content.link',       'zk-link'],
             ['zairakai::content.list',       'zk-list'],
             ['zairakai::content.msr',        'zk-msr'],
             ['zairakai::content.paragraph',  'zk-paragraph'],
+        ];
+    }
+
+    /**
+     * @return array<array{string, string}>
+     */
+    private function displayAliases(): array
+    {
+        return [
+            ['zairakai::display.accordion',      'zk-accordion'],
+            ['zairakai::display.accordion-item', 'zk-accordion-item'],
+            ['zairakai::display.avatar',         'zk-avatar'],
+            ['zairakai::display.badge',          'zk-badge'],
+            ['zairakai::display.card',           'zk-card'],
+            ['zairakai::display.chip',           'zk-chip'],
+            ['zairakai::display.divider',        'zk-divider'],
+            ['zairakai::display.empty-state',    'zk-empty-state'],
+            ['zairakai::display.stat',           'zk-stat'],
+        ];
+    }
+
+    /**
+     * @return array<array{string, string}>
+     */
+    private function feedbackAliases(): array
+    {
+        return [
+            ['zairakai::feedback.alert',    'zk-alert'],
+            ['zairakai::feedback.banner',   'zk-banner'],
+            ['zairakai::feedback.progress', 'zk-progress'],
+            ['zairakai::feedback.skeleton', 'zk-skeleton'],
         ];
     }
 
@@ -189,6 +229,21 @@ class LaravelBladeComponentsServiceProvider extends ServiceProvider
             ['zairakai::medias.source',     'zk-source'],
             ['zairakai::medias.track',      'zk-track'],
             ['zairakai::medias.video',      'zk-video'],
+        ];
+    }
+
+    /**
+     * @return array<array{string, string}>
+     */
+    private function overlayAliases(): array
+    {
+        return [
+            ['zairakai::overlay.drawer',        'zk-drawer'],
+            ['zairakai::overlay.dropdown',      'zk-dropdown'],
+            ['zairakai::overlay.dropdown-item', 'zk-dropdown-item'],
+            ['zairakai::overlay.modal',         'zk-modal'],
+            ['zairakai::overlay.popover',       'zk-popover'],
+            ['zairakai::overlay.tooltip',       'zk-tooltip'],
         ];
     }
 }
