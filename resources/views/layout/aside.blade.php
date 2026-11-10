@@ -1,5 +1,5 @@
 @props(['class' => null])
 
 <aside {{ $attributes->merge(['class' => $class]) }}>
-    {{ $slot }}
+  {{ $slot }}
 </aside>

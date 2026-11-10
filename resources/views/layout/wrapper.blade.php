@@ -1,9 +1,9 @@
 @props(['class' => null])
 
 @php
-    $baseClass = trim('wrapper' . ($class ? ' ' . $class : ''));
+  $baseClass = trim('wrapper' . ($class ? ' ' . $class : ''));
 @endphp
 
 <div {{ $attributes->merge(['class' => $baseClass]) }}>
-    {{ $slot }}
+  {{ $slot }}
 </div>

@@ -1,3 +1,3 @@
 <x-form.input
-    type="time"
-    :attributes="$attributes" />
+  type="time"
+  :attributes="$attributes" />

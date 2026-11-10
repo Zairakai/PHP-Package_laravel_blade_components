@@ -1,3 +1,3 @@
 <x-form.input
-    type="number"
-    :attributes="$attributes" />
+  type="number"
+  :attributes="$attributes" />

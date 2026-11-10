@@ -1,8 +1,8 @@
 @props([
-    'class' => null,
-    'text' => null,
-    'target' => null,
-    'label' => 'Copy',
+  'class' => null,
+  'text' => null,
+  'target' => null,
+  'label' => 'Copy',
 ])
 
 @php(app(\Zairakai\LaravelBladeComponents\AssetRegistry::class)->script('copy'))

@@ -1,3 +1,3 @@
 <x-form.input
-    type="search"
-    :attributes="$attributes" />
+  type="search"
+  :attributes="$attributes" />

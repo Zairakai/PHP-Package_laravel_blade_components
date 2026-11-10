@@ -1,3 +1,3 @@
 <x-form.input
-    type="month"
-    :attributes="$attributes" />
+  type="month"
+  :attributes="$attributes" />

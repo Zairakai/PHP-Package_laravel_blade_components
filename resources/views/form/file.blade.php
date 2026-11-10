@@ -1,3 +1,3 @@
 <x-form.input
-    type="file"
-    :attributes="$attributes" />
+  type="file"
+  :attributes="$attributes" />

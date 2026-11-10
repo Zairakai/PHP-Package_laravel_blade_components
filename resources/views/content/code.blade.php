@@ -1,5 +1,5 @@
 @props([
-    'class' => null,
+  'class' => null,
 ])
 
 <code {{ $attributes->merge(['class' => trim('code ' . $class)]) }}>{{ $slot }}</code>

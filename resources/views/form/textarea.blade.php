@@ -1,68 +1,68 @@
 @props([
-    "id" => null,
-    "name" => null,
-    "form" => null,
-    "value" => null,
-    "placeholder" => null,
-    "required" => false,
-    "disabled" => false,
-    "readonly" => false,
-    "autofocus" => false,
-    "class" => null,
-    "rows" => null,
-    "cols" => null,
-    "maxlength" => null,
-    "wrap" => null,
-    "dirname" => null,
-    "label" => null,
-    "labelBefore" => true,
-    "fieldClass" => null,
-    "iconBefore" => null,
-    "iconAfter" => null,
-    "field" => true,
-    "prefix" => null,
-    "suffix" => null,
-    "supportingText" => null,
-    "supportingCounter" => null,
+  "id" => null,
+  "name" => null,
+  "form" => null,
+  "value" => null,
+  "placeholder" => null,
+  "required" => false,
+  "disabled" => false,
+  "readonly" => false,
+  "autofocus" => false,
+  "class" => null,
+  "rows" => null,
+  "cols" => null,
+  "maxlength" => null,
+  "wrap" => null,
+  "dirname" => null,
+  "label" => null,
+  "labelBefore" => true,
+  "fieldClass" => null,
+  "iconBefore" => null,
+  "iconAfter" => null,
+  "field" => true,
+  "prefix" => null,
+  "suffix" => null,
+  "supportingText" => null,
+  "supportingCounter" => null,
 ])
 
 @php
-    use Zairakai\LaravelBladeComponents\BladeHelpers;
+  use Zairakai\LaravelBladeComponents\BladeHelpers;
 
-    $field = filter_var($field, FILTER_VALIDATE_BOOLEAN);
-    $labelBefore = filter_var($labelBefore, FILTER_VALIDATE_BOOLEAN);
-    $id = $id ?? $name;
-    $value = BladeHelpers::getOldValue($name, $value);
+  $field = filter_var($field, FILTER_VALIDATE_BOOLEAN);
+  $labelBefore = filter_var($labelBefore, FILTER_VALIDATE_BOOLEAN);
+  $id = $id ?? $name;
+  $value = BladeHelpers::getOldValue($name, $value);
 
-    if ($errors->has($name)) {
-        $supportingText = $errors->first($name);
-    }
+  if ($errors->has($name)) {
+    $supportingText = $errors->first($name);
+  }
 @endphp
 
 <x-form.field
-    :field="$field"
-    class="{{ $fieldClass }}">
-    @if ($field && $label && $labelBefore)
-        <x-form.label
-            :label="$label"
-            :name="$name"
-            :id="$id"
-            :iconBefore="$iconBefore"
-            :iconAfter="$iconAfter"
-            :prefix="$prefix"
-            :suffix="$suffix" />
+  :field="$field"
+  class="{{ $fieldClass }}">
+  @if ($field && $label && $labelBefore)
+    <x-form.label
+      :label="$label"
+      :name="$name"
+      :id="$id"
+      :iconBefore="$iconBefore"
+      :iconAfter="$iconAfter"
+      :prefix="$prefix"
+      :suffix="$suffix" />
+  @endif
+
+  <div data-input>
+    @if ($iconBefore)
+      <span data-leading-icon>{{ $iconBefore }}</span>
     @endif
 
-    <div data-input>
-        @if ($iconBefore)
-            <span data-leading-icon>{{ $iconBefore }}</span>
-        @endif
+    @if ($prefix)
+      <span data-prefix>{{ $prefix }}</span>
+    @endif
 
-        @if ($prefix)
-            <span data-prefix>{{ $prefix }}</span>
-        @endif
-
-        <textarea
+    <textarea
             id="{{ $id }}"
             name="{{ $name }}"
             @if($placeholder) placeholder="{{ $placeholder }}" @endif
@@ -81,29 +81,29 @@
             {{ $value }}
         </textarea>
 
-        @if ($suffix)
-            <span data-suffix>{{ $suffix }}</span>
-        @endif
-
-        @if ($iconAfter)
-            <span data-trailing-icon>{{ $iconAfter }}</span>
-        @endif
-    </div>
-
-    @if ($field && $label && ! $labelBefore)
-        <x-form.label
-            :label="$label"
-            :name="$name"
-            :id="$id"
-            :iconBefore="$iconBefore"
-            :iconAfter="$iconAfter"
-            :prefix="$prefix"
-            :suffix="$suffix" />
+    @if ($suffix)
+      <span data-suffix>{{ $suffix }}</span>
     @endif
 
-    @if ($field)
-        <x-form.additional
-            :text="$supportingText"
-            :counter="$supportingCounter" />
+    @if ($iconAfter)
+      <span data-trailing-icon>{{ $iconAfter }}</span>
     @endif
+  </div>
+
+  @if ($field && $label && ! $labelBefore)
+    <x-form.label
+      :label="$label"
+      :name="$name"
+      :id="$id"
+      :iconBefore="$iconBefore"
+      :iconAfter="$iconAfter"
+      :prefix="$prefix"
+      :suffix="$suffix" />
+  @endif
+
+  @if ($field)
+    <x-form.additional
+      :text="$supportingText"
+      :counter="$supportingCounter" />
+  @endif
 </x-form.field>

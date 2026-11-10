@@ -1,3 +1,3 @@
 <x-form.input
-    type="color"
-    :attributes="$attributes" />
+  type="color"
+  :attributes="$attributes" />

@@ -1,5 +1,5 @@
 @props(['class' => null])
 
 <div {{ $attributes->merge(['class' => $class]) }}>
-    {{ $slot }}
+  {{ $slot }}
 </div>

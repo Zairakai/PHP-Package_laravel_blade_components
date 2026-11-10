@@ -1,3 +1,3 @@
 <x-form.input
-    type="tel"
-    :attributes="$attributes" />
+  type="tel"
+  :attributes="$attributes" />

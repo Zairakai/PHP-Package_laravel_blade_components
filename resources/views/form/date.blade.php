@@ -1,3 +1,3 @@
 <x-form.input
-    type="date"
-    :attributes="$attributes" />
+  type="date"
+  :attributes="$attributes" />

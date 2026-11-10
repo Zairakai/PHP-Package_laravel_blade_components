@@ -1,3 +1,3 @@
 <x-form.input
-    type="url"
-    :attributes="$attributes" />
+  type="url"
+  :attributes="$attributes" />

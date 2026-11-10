@@ -1,3 +1,3 @@
 <x-form.input
-    type="datetime-local"
-    :attributes="$attributes" />
+  type="datetime-local"
+  :attributes="$attributes" />
