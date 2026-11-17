@@ -39,7 +39,7 @@
     ],
     "require": {
         "php": "^8.4",
-        "laravel/framework": "^12.0 || ^13.42"
+        "laravel/framework": "^12.0 || ^13.43"
     },
     "require-dev": {
         "ergebnis/composer-normalize": "^2.57.0",
